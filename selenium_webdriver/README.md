@@ -26,3 +26,12 @@ HOME TASK
 11.	There is no code duplication at all.
 12.	Inner implementation of PO is hidden from tests.
 13.	Naming and Code Conventions should be followed.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+Test Launch under Chrome commands:
+
+1. For all dev.properties tests:
+mvn clean -Dbrowser=chrome -Denvironment=environments\dev "-Dsurefire.suiteXmlFiles=src\test\resources\testSuites\testng-all-dev.xml" test
+
+2. For all qa.properties tests:
+mvn clean -Dbrowser=chrome -Denvironment=environments\qa "-Dsurefire.suiteXmlFiles=src\test\resources\testSuites\testng-all-qa.xml" test

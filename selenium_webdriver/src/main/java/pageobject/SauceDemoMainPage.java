@@ -1,25 +1,24 @@
-package pageobject.sauceDemoPages;
+package pageobject;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import pageobject.basePage.BasePage;
 
 import java.util.List;
 
 public class SauceDemoMainPage extends BasePage {
 
-    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    @FindBy(xpath = "//button[@name='add-to-cart-sauce-labs-backpack']")
     private WebElement sauceLabsBackPackItemAddToCartButton;
 
-    @FindBy(id = "remove-sauce-labs-backpack")
+    @FindBy(xpath = "//button[@name='remove-sauce-labs-backpack']")
     private WebElement sauceLabsBackPackItemRemoveFromCartButton;
 
     @FindBy(xpath = "//span[@class='shopping_cart_badge']")
     public WebElement sauceLabsBackPackItemIsAddedToCart;
 
-    @FindBy(xpath = "//*[text()='Epic sadface: Sorry, this user has been locked out.']")
+    @FindBy(xpath = "//h3[@Data-test='error']")
     private WebElement loginErrorButton;
 
     @FindBy(xpath = "//div[@class='inventory_item_name']")
@@ -46,11 +45,19 @@ public class SauceDemoMainPage extends BasePage {
         return loginErrorButton.getText();
     }
 
-    public String cartBadgeIsPresentAfterItemWasAddedToItCheck() {
+    public String getCartBadgeMessageAfterItemWasAddedToIt() {
         return sauceLabsBackPackItemIsAddedToCart.getText();
     }
 
-    public int getTheFullItemsList() {
+    public String getSauceLabsBackPackItemAddToCartButtonText() {
+        return sauceLabsBackPackItemAddToCartButton.getText();
+    }
+
+    public String getSauceLabsBackPackItemRemoveFromCartButtonText() {
+        return sauceLabsBackPackItemRemoveFromCartButton.getText();
+    }
+
+    public int getTheFullItemsListSize() {
         return sauceDemoItemsList.size();
     }
 }

@@ -1,11 +1,10 @@
-package pageobject.sauceDemoPages;
+package pageobject;
 
 import model.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import pageobject.basePage.BasePage;
 
 public class SauceDemoLoginPage extends BasePage {
     private static final String SAUCE_DEMO_LOGIN_PAGE_URL = "testdata.sauceDemo.login.page.url";
@@ -17,7 +16,7 @@ public class SauceDemoLoginPage extends BasePage {
     private WebElement inputPassword;
 
     @FindBy(id = "login-button")
-    private WebElement submitLoginButton;
+    private WebElement submit;
 
     public SauceDemoLoginPage(WebDriver driver) {
         super(driver);
@@ -33,7 +32,7 @@ public class SauceDemoLoginPage extends BasePage {
     public SauceDemoMainPage loginToSauceDemoMainPage(User user) {
         inputLogin.sendKeys(user.getUsername());
         inputPassword.sendKeys(user.getPassword());
-        submitLoginButton.click();
+        submit.click();
 
         return new SauceDemoMainPage(driver);
     }

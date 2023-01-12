@@ -16,6 +16,9 @@
         <selenium-java.version>4.7.2</selenium-java.version>
         <webdrivermanager.version>5.3.1</webdrivermanager.version>
         <slf4j-simple.version>1.6.1</slf4j-simple.version>
+        <asertj-core.version>3.24.1</asertj-core.version>
+        <lombok.version>1.18.20</lombok.version>
+        <suit>testng-smoke.xls</suit>
     </properties>
     <dependencies>
         <dependency>
@@ -45,6 +48,18 @@
             <artifactId>log4j</artifactId>
             <version>${log4j.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${asertj-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -54,7 +69,7 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/testSuites/${suit}.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

@@ -31,7 +31,9 @@ HOME TASK
 Test Launch under Chrome commands:
 
 1. For all dev.properties tests:
-mvn clean -Dbrowser=chrome -Denvironment=environments\dev "-Dsurefire.suiteXmlFiles=src\test\resources\testSuites\testng-all-dev.xml" test
+   mvn clean test -Dbrowser=chrome -Denvironment=dev -Dsuit=testng-all-dev
 
 2. For all qa.properties tests:
-mvn clean -Dbrowser=chrome -Denvironment=environments\qa "-Dsurefire.suiteXmlFiles=src\test\resources\testSuites\testng-all-qa.xml" test
+   mvn clean test -Dbrowser=chrome -Denvironment=qa -Dsuit=testng-all-qa
+
+3. In case of default test run "testng-smoke.xml" will be applied.

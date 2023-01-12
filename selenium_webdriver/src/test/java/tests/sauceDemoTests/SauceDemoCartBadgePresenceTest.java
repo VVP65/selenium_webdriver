@@ -2,23 +2,23 @@ package tests.sauceDemoTests;
 
 import model.User;
 import org.testng.annotations.Test;
-import pageobject.sauceDemoPages.SauceDemoLoginPage;
+import pageobject.SauceDemoLoginPage;
 import service.UserCreator;
 import tests.BaseTest;
 
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
 
 public class SauceDemoCartBadgePresenceTest extends BaseTest {
 
     @Test
-    public void cartBadgeWasAddedToTheCartLogoAfterAddingItemIntoCart() {
-        User testUser = UserCreator.withCredentialsFromProperty();
-        String badgeWasAddedToTheCartLogo = String.valueOf(new SauceDemoLoginPage(driver)
+    public void cartBadgeWasAddedToTheCartLogoAfterAddingItemIntoCartCheck() {
+        User testUser = UserCreator.getStandardUser();
+        String badgeWasAddedToTheCartLogo = new SauceDemoLoginPage(driver)
                 .openSauceDemoLoginPage()
                 .loginToSauceDemoMainPage(testUser)
                 .clickAddToCartButton()
-                .cartBadgeIsPresentAfterItemWasAddedToItCheck());
+                .getCartBadgeMessageAfterItemWasAddedToIt();
 
-        assertTrue(true, "Badge was not successfully added to the cart logo.");
+        assertEquals(badgeWasAddedToTheCartLogo, "1", "Badge was not successfully added to the cart logo.");
     }
 }

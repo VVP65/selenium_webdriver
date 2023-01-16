@@ -9,15 +9,16 @@ import tests.BaseTest;
 import static org.testng.Assert.assertEquals;
 
 public class SauceDemoAddItemToCartTest extends BaseTest {
+
     @Test
     public void oneCanAddItemToCart() {
         User testUser = UserCreator.getStandardUser();
-        String itemWasAddedToCart = new SauceDemoLoginPage(driver)
+        String buttonText = new SauceDemoLoginPage(driver)
                 .openSauceDemoLoginPage()
                 .loginToSauceDemoMainPage(testUser)
                 .clickAddToCartButton()
                 .getSauceLabsBackPackItemRemoveFromCartButtonText();
 
-        assertEquals(itemWasAddedToCart, "REMOVE", "An item was not successfully added to the cart.");
+        assertEquals(buttonText, "REMOVE", "An item was not successfully added to the cart.");
     }
 }

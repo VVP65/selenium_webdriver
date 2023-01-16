@@ -13,13 +13,13 @@ public class SauceDemoDeleteItemFromCartTest extends BaseTest {
     @Test
     public void oneCanDeleteItemFromCartCheck() {
         User testUser = UserCreator.getStandardUser();
-        String itemWasDeletedFromCart = new SauceDemoLoginPage(driver)
+        String buttonText = new SauceDemoLoginPage(driver)
                 .openSauceDemoLoginPage()
                 .loginToSauceDemoMainPage(testUser)
                 .clickAddToCartButton()
                 .clickDeleteFromCartButton()
                 .getSauceLabsBackPackItemAddToCartButtonText();
 
-        assertEquals(itemWasDeletedFromCart, "ADD TO CART", "An item was not successfully deleted from cart.");
+        assertEquals(buttonText, "ADD TO CART", "An item was not successfully deleted from cart.");
     }
 }

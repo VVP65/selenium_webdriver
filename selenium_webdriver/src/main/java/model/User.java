@@ -1,13 +1,10 @@
 package model;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @AllArgsConstructor
-@Getter
-@Setter
-
+@Data
 public class User {
     private String username;
     private String password;

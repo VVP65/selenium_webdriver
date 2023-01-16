@@ -9,6 +9,7 @@ import tests.BaseTest;
 import static org.testng.Assert.assertTrue;
 
 public class SauceDemoMainPageURLAfterSuccessfulLoginTest extends BaseTest {
+
     @Test
     public void sauceDemoMainPageURLAfterSuccessfulLoginCheck() {
         User testUser = UserCreator.getStandardUser();

@@ -26,3 +26,14 @@ HOME TASK
 11.	There is no code duplication at all.
 12.	Inner implementation of PO is hidden from tests.
 13.	Naming and Code Conventions should be followed.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+Test Launch under Chrome commands:
+
+1. For all dev.properties tests:
+   mvn clean test -Dbrowser=chrome -Denvironment=dev -Dsuit=testng-all-dev
+
+2. For all qa.properties tests:
+   mvn clean test -Dbrowser=chrome -Denvironment=qa -Dsuit=testng-all-qa
+
+3. In case of default test run "testng-smoke.xml" will be applied.

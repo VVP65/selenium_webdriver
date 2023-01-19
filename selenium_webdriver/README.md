@@ -1,39 +1,29 @@
-SELENIUM WEBDRIVER FOR JAVA
+SELENIUM WD ADVANCED WITH JAVA: ACTIONS, 8JAVASCRIPT EXECUTOR, SELENIUM SERVER + SELENIUM GRID.
 
-HOME TASK
+hOME TASK
+1.	Convert your project from previous home tasks (Selenium WebDriver) – add at least 2 new Actions implementations 
+(for example: 1 for mouse actions and 1 for keyboard).
+•	If current SUT does not allow to implement any Actions – add some pages for Yandex Disk and implement some Actions on it (such as drag-n-drop (delete a file dragging to the trash bin), context menu actions, multi-selecting files, etc)
+2.	Add at least 2 implementation of JavaScript Executor usage (for example: implement element highlighter, JS Executor based clicker or element finder);
+3.	Set up Selenium Grid with at least two nodes and run all your test suites on the grid.
 
-1.	WebDriver + Java + TestNG
- 
-•	Select a system under test (preferable: web application being tested during your project activities);
-•	Agree with your mentor and document 3 scenarios to automate. The scenarios should be linear (no need to implement complex logic for now) and contain 8-10 simple steps;
-•	Use WebDriver API as much as possible (browser navigation, clicks, switchTo and etc.);
-•	Use several locator strategies i.e. different types of locators (and select the most suitable in your case);
-•	Experiment with waits (implicit and explicit);
-•	Extend your scenario with usage of  Page Object / Page Factory patterns.
+ACCEPTANCE CRITERIA
+1.	2 or more actions are added to the project. (Have a complex structure – a sequence of several operations).
+2.	2 or more implementation of JavaScript Executor usage are added to the project. 
+3.	There is a rational explanation to use exactly this JavaScript Executor methods and usage of these methods 
+brings profit to the project.
+4.	Selenium Grid is correctly set up. Different capabilities are used during set up.
+5.	There is no code duplication at all.
+6.	Naming and Code Conventions should be followed.
 
-2.ACCEPTANCE CRITERIA
+Grid setup commands via CMD:
 
-1.	The scenarios are linear (no need to implement complex logic for now). 3 scenarios in total.
-2.	Different locator strategies are used for a task.
-3.	Usage of auto-generated locators is avoided.
-4.	WebDriver API is widely used.
-5.	Different methods of waits are used.
-6.	Test scenarios are clear, stable and good structured.
-7.	Each method in test scenario has assertions.
-8.	Page Objects have consistent structure (decomposition of PO is right).
-9.	Test scenarios are clear, stable and good structured.
-10.	There is at least one level of inheritance between pages (Abstract Page exists).
-11.	There is no code duplication at all.
-12.	Inner implementation of PO is hidden from tests.
-13.	Naming and Code Conventions should be followed.
+Run as hub:
+java -jar selenium-server-<version>.jar hub
 
------------------------------------------------------------------------------------------------------------------------------------
-Test Launch under Chrome commands:
+Run as node:
+java -jar selenium-server-<version>.jar node --port ****
 
-1. For all dev.properties tests:
-   mvn clean test -Dbrowser=chrome -Denvironment=dev -Dsuit=testng-all-dev
+Grid tests via terminal run command:
+mvn clean test -Denvironment=dev -Dsuit=testng-grid
 
-2. For all qa.properties tests:
-   mvn clean test -Dbrowser=chrome -Denvironment=qa -Dsuit=testng-all-qa
-
-3. In case of default test run "testng-smoke.xml" will be applied.

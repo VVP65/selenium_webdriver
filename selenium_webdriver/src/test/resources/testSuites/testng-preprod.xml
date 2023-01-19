@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Tests" verbose="1">
-    <test name="Preprod">
+<suite name="Preprod Tests" verbose="1">
+    <test name="SauceDemoLoginButtonErrorMessageTest">
         <classes>
             <class name="tests.sauceDemoTests.SauceDemoLoginButtonErrorMessageTest"/>
         </classes>

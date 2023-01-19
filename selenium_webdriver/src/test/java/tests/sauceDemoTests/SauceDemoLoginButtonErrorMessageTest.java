@@ -1,9 +1,9 @@
 package tests.sauceDemoTests;
 
-import model.User;
+import models.User;
 import org.testng.annotations.Test;
-import pageobject.SauceDemoLoginPage;
-import service.UserCreator;
+import pages.SauceDemoLoginPage;
+import core.service.UserCreator;
 import tests.BaseTest;
 
 import static org.testng.Assert.assertEquals;

@@ -1,12 +1,13 @@
-package pageobject;
+package pages;
 
+import core.service.TestDataReader;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import service.TestDataReader;
 
 import java.time.Duration;
 
@@ -38,6 +39,32 @@ public abstract class BasePage {
     }
 
     public String getPageURL() {
+
         return driver.getCurrentUrl();
+    }
+
+    protected BasePage highlightElement(WebElement element) {
+        JavascriptExecutor javascriptExecutor = ((JavascriptExecutor) driver);
+        javascriptExecutor.executeScript("arguments[0].style.backgroundColor = '" + "green" + "'", element);
+
+        return this;
+    }
+
+    protected void clickElementUsingJavaScriptExecutor(String element) {
+        JavascriptExecutor javascriptExecutor = ((JavascriptExecutor) driver);
+        javascriptExecutor.executeScript(element);
+    }
+
+
+    protected BasePage clickWebElementUsingActions(WebElement element) {
+        new Actions(driver).click(element).build().perform();
+
+        return this;
+    }
+
+    protected BasePage sendKeysToTheFormUsingActions(String user) {
+        new Actions(driver).sendKeys(user).build().perform();
+
+        return this;
     }
 }

@@ -1,5 +1,6 @@
-package pageobject;
+package pages;
 
+import models.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class SauceDemoMainPage extends BasePage {
+    static final String MENU_BUTTON_ID = "document.getElementById('react-burger-menu-btn').click()";
+    static final String LOGOUT_BUTTON_ID = "document.getElementById('logout_sidebar_link').click()";
 
     @FindBy(xpath = "//button[@name='add-to-cart-sauce-labs-backpack']")
     private WebElement sauceLabsBackPackItemAddToCartButton;
@@ -20,6 +23,12 @@ public class SauceDemoMainPage extends BasePage {
 
     @FindBy(xpath = "//h3[@Data-test='error']")
     private WebElement loginErrorButton;
+
+    @FindBy(xpath = "//button[@id='react-burger-menu-btn']")
+    private WebElement menuButton;
+
+    @FindBy(xpath = "//a[@id='logout_sidebar_link']")
+    private WebElement logoutButton;
 
     @FindBy(xpath = "//div[@class='inventory_item_name']")
     private List<WebElement> sauceDemoItemsList;
@@ -42,10 +51,12 @@ public class SauceDemoMainPage extends BasePage {
     }
 
     public String getLoginErrorMessage() {
+
         return loginErrorButton.getText();
     }
 
     public String getCartBadgeMessageAfterItemWasAddedToIt() {
+
         return sauceLabsBackPackItemIsAddedToCart.getText();
     }
 
@@ -58,6 +69,16 @@ public class SauceDemoMainPage extends BasePage {
     }
 
     public int getTheFullItemsListSize() {
+
         return sauceDemoItemsList.size();
+    }
+
+    public SauceDemoMainPage logoutFromSauceDemoMainPageUsingJavaScriptExecutor(User user) {
+        highlightElement(menuButton);
+        clickElementUsingJavaScriptExecutor(MENU_BUTTON_ID);
+        highlightElement(logoutButton);
+        clickElementUsingJavaScriptExecutor(LOGOUT_BUTTON_ID);
+
+        return new SauceDemoMainPage(driver);
     }
 }

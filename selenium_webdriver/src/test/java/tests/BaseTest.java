@@ -1,27 +1,27 @@
 package tests;
 
-import driver.DriverManager;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import core.driver.DriverManager;
+import core.driver.DriverManagerFactory;
+import core.driver.DriverType;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
-    public static Logger log = LogManager.getRootLogger();
 
-
+    DriverManager driverManager;
     protected WebDriver driver;
-
 
     @BeforeMethod()
     public void browserSetUp() {
-        driver = DriverManager.getDriver();
+        driverManager = DriverManagerFactory.getManager(DriverType.CHROME_REMOTE);
+        driver = driverManager.getDriver();
         driver.manage().window().maximize();
     }
 
     @AfterMethod(alwaysRun = true)
     public void browserTearDown() {
-        DriverManager.closeDriver();
+
+        driver.quit();
     }
 }

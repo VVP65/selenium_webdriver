@@ -1,6 +1,6 @@
-package service;
+package core.service;
 
-import model.User;
+import models.User;
 
 public class UserCreator {
     public static final String TESTDATA_STANDARD_USER_NAME = "testdata.standard.user.name";

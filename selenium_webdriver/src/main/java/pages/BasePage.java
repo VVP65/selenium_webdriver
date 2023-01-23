@@ -50,20 +50,20 @@ public abstract class BasePage {
         return this;
     }
 
-    protected void clickElementUsingJavaScriptExecutor(String element) {
+    protected void clickElementUsingJavaScriptExecutor(String script) {
         JavascriptExecutor javascriptExecutor = ((JavascriptExecutor) driver);
-        javascriptExecutor.executeScript(element);
+        javascriptExecutor.executeScript(script);
     }
 
 
     protected BasePage clickWebElementUsingActions(WebElement element) {
-        new Actions(driver).click(element).build().perform();
+        new Actions(driver).click(element).perform();
 
         return this;
     }
 
-    protected BasePage sendKeysToTheFormUsingActions(String user) {
-        new Actions(driver).sendKeys(user).build().perform();
+    protected BasePage sendKeysToTheFormUsingActions(String text) {
+        new Actions(driver).sendKeys(text).perform();
 
         return this;
     }

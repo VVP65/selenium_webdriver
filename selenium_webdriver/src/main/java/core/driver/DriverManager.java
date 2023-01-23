@@ -2,7 +2,7 @@ package core.driver;
 
 import org.openqa.selenium.WebDriver;
 
-public abstract class DriverManager {
+public class DriverManager {
 
     protected WebDriver driver;
 

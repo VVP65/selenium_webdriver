@@ -2,10 +2,10 @@ package core.driver;
 
 public class DriverManagerFactory {
 
-    public static DriverManager getManager(DriverType type) {
+    public static DriverManager getManager(DriverType driverType) {
         DriverManager driverManager = null;
 
-        switch (type) {
+        switch (driverType) {
             case CHROME:
                 driverManager = new ChromeDriverManager();
                 break;
@@ -17,8 +17,6 @@ public class DriverManagerFactory {
                 break;
             case EDGE:
                 driverManager = new EdgeDriverManager();
-                break;
-            default:
                 break;
         }
 

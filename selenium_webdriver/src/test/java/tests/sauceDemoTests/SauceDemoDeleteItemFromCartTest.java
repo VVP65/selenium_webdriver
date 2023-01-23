@@ -20,6 +20,6 @@ public class SauceDemoDeleteItemFromCartTest extends BaseTest {
                 .clickDeleteFromCartButton()
                 .getSauceLabsBackPackItemAddToCartButtonText();
 
-        assertEquals(buttonText, "ADD TO CART", "An item was not successfully deleted from cart.");
+        assertEquals(buttonText, "ADD TO CART", "ADD TO CART button is absent on the screen.");
     }
 }

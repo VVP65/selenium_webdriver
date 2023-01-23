@@ -1,6 +1,5 @@
 package tests;
 
-import core.driver.DriverManager;
 import core.driver.DriverManagerFactory;
 import core.driver.DriverType;
 import org.openqa.selenium.WebDriver;
@@ -9,13 +8,12 @@ import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
 
-    DriverManager driverManager;
     protected WebDriver driver;
 
     @BeforeMethod()
     public void browserSetUp() {
-        driverManager = DriverManagerFactory.getManager(DriverType.CHROME_REMOTE);
-        driver = driverManager.getDriver();
+        DriverType driverType = DriverType.valueOf(System.getProperty("browser"));
+        driver = DriverManagerFactory.getManager(driverType).getDriver();
         driver.manage().window().maximize();
     }
 

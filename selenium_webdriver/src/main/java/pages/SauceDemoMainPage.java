@@ -9,8 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class SauceDemoMainPage extends BasePage {
-    static final String MENU_BUTTON_ID = "document.getElementById('react-burger-menu-btn').click()";
-    static final String LOGOUT_BUTTON_ID = "document.getElementById('logout_sidebar_link').click()";
+    static final String MENU_BUTTON_ID = "'react-burger-menu-btn'";
+    static final String LOGOUT_BUTTON_ID = "'logout_sidebar_link'";
+    static final String CLICK_SCRIPT_BY_BUTTON_ID = "document.getElementById(%s).click()";
+
 
     @FindBy(xpath = "//button[@name='add-to-cart-sauce-labs-backpack']")
     private WebElement sauceLabsBackPackItemAddToCartButton;
@@ -75,9 +77,9 @@ public class SauceDemoMainPage extends BasePage {
 
     public SauceDemoMainPage logoutFromSauceDemoMainPageUsingJavaScriptExecutor(User user) {
         highlightElement(menuButton);
-        clickElementUsingJavaScriptExecutor(MENU_BUTTON_ID);
+        clickElementUsingJavaScriptExecutor(String.format(CLICK_SCRIPT_BY_BUTTON_ID, MENU_BUTTON_ID));
         highlightElement(logoutButton);
-        clickElementUsingJavaScriptExecutor(LOGOUT_BUTTON_ID);
+        clickElementUsingJavaScriptExecutor(String.format(CLICK_SCRIPT_BY_BUTTON_ID, LOGOUT_BUTTON_ID));
 
         return new SauceDemoMainPage(driver);
     }

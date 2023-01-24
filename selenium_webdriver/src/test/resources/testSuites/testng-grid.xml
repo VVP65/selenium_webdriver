@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Grid Tests" verbose="1">
+    <test name="SauceDemoMainPageLoginUsingWebDriverActionsTest">
+        <classes>
+            <class name="tests.sauceDemoTests.SauceDemoMainPageLoginUsingWebDriverActionsTest"/>
+        </classes>
+    </test>
+    <test name="-SauceDemoMainPageLoginUsingWebDriverActionsWithHighlightingTest">
+        <classes>
+            <class name="tests.sauceDemoTests.SauceDemoMainPageLoginUsingWebDriverActionsWithHighlightingTest"/>
+        </classes>
+    </test>
+    <test name="SauceDemoMainPageLogoutUsingJavaScriptExecutorTest">
+        <classes>
+            <class name="tests.sauceDemoTests.SauceDemoMainPageLogoutUsingJavaScriptExecutorTest"/>
+        </classes>
+    </test>
+    <test name="SauceDemoMainPageLogoutUsingJavaScriptExecutorWithHighlightingTest">
+        <classes>
+            <class name="tests.sauceDemoTests.SauceDemoMainPageLogoutUsingJavaScriptExecutorWithHighlightingTest"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Dev Tests" verbose="1">
+    <test name="All Dev Tests">
+        <parameter name="environment" value="dev"/>
+        <classes>
+            <class name="tests.sauceDemoTests.SauceDemoProductQuantityTest">
+            </class>
+        </classes>
+    </test>
+    <test name="SauceDemoCartBadgePresenceTest">
+        <parameter name="environment" value="dev"/>
+        <classes>
+            <class name="tests.sauceDemoTests.SauceDemoCartBadgePresenceTest">
+            </class>
+        </classes>
+    </test>
+    <test name="SauceDemoAddItemToCartTest">
+        <parameter name="environment" value="dev"/>
+        <classes>
+            <class name="tests.sauceDemoTests.SauceDemoAddItemToCartTest">
+            </class>
+        </classes>
+    </test>
+    <test name="SauceDemoDeleteItemFromCartTest">
+        <parameter name="environment" value="dev"/>
+        <classes>
+            <class name="tests.sauceDemoTests.SauceDemoDeleteItemFromCartTest">
+            </class>
+        </classes>
+    </test>
+    <test name="SauceDemoMainPageURLAfterSuccessfulLoginTest">
+        <parameter name="environment" value="dev"/>
+        <classes>
+            <class name="tests.sauceDemoTests.SauceDemoMainPageURLAfterSuccessfulLoginTest">
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -14,8 +14,8 @@ public class SauceDemoLoginButtonErrorMessageTest extends BaseTest {
     public void lockedUserIsNotAbleToLoginCheck() {
         User testUser = UserCreator.getLockedOutUser();
         String sauceDemoLoginButtonErrorMessage = new SauceDemoLoginPage(driver)
-                .openSauceDemoLoginPage()
-                .loginToSauceDemoMainPage(testUser)
+                .openLoginPage()
+                .loginToMainPage(testUser)
                 .getLoginErrorMessage();
 
         assertEquals(sauceDemoLoginButtonErrorMessage, "Epic sadface: Sorry, this user has been locked out.", "Current page does not belong to Sauce Demo project");

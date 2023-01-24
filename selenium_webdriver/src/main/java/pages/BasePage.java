@@ -62,7 +62,7 @@ public abstract class BasePage {
         return this;
     }
 
-    protected BasePage sendKeysToTheFormUsingActions(String text) {
+    protected BasePage sendKeysViaActions(String text) {
         new Actions(driver).sendKeys(text).perform();
 
         return this;

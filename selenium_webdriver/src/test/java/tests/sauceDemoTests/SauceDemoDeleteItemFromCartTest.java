@@ -14,8 +14,8 @@ public class SauceDemoDeleteItemFromCartTest extends BaseTest {
     public void oneCanDeleteItemFromCartCheck() {
         User testUser = UserCreator.getStandardUser();
         String buttonText = new SauceDemoLoginPage(driver)
-                .openSauceDemoLoginPage()
-                .loginToSauceDemoMainPage(testUser)
+                .openLoginPage()
+                .loginToMainPage(testUser)
                 .clickAddToCartButton()
                 .clickDeleteFromCartButton()
                 .getSauceLabsBackPackItemAddToCartButtonText();

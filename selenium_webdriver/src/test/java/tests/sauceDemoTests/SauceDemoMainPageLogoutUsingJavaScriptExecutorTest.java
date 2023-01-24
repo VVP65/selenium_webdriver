@@ -15,8 +15,8 @@ public class SauceDemoMainPageLogoutUsingJavaScriptExecutorTest extends BaseTest
         User testUser = UserCreator.getStandardUser();
 
         String sauceDemoLoginPageURL = new SauceDemoLoginPage(driver)
-                .openSauceDemoLoginPage()
-                .loginToSauceDemoMainPage(testUser)
+                .openLoginPage()
+                .loginToMainPage(testUser)
                 .logoutFromSauceDemoMainPageUsingJavaScriptExecutor(testUser)
                 .getPageURL();
 

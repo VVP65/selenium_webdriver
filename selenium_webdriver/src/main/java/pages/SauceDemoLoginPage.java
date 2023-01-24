@@ -23,13 +23,13 @@ public class SauceDemoLoginPage extends BasePage {
         PageFactory.initElements(this.driver, this);
     }
 
-    public SauceDemoLoginPage openSauceDemoLoginPage() {
+    public SauceDemoLoginPage openLoginPage() {
         openPage(PROPERTY_URL);
 
         return this;
     }
 
-    public SauceDemoMainPage loginToSauceDemoMainPage(User user) {
+    public SauceDemoMainPage loginToMainPage(User user) {
         inputLogin.sendKeys(user.getUsername());
         inputPassword.sendKeys(user.getPassword());
         submit.click();
@@ -37,24 +37,24 @@ public class SauceDemoLoginPage extends BasePage {
         return new SauceDemoMainPage(driver);
     }
 
-    public SauceDemoMainPage loginToSauceDemoMainPageUsingWebDriverActions(User user) {
-        openSauceDemoLoginPage();
+    public SauceDemoMainPage loginViaActions(User user) {
+        openLoginPage();
         clickWebElementUsingActions(inputLogin);
-        sendKeysToTheFormUsingActions(user.getUsername());
+        sendKeysViaActions(user.getUsername());
         clickWebElementUsingActions(inputPassword);
-        sendKeysToTheFormUsingActions(user.getPassword());
+        sendKeysViaActions(user.getPassword());
         submit.click();
 
         return new SauceDemoMainPage(driver);
     }
 
-    public SauceDemoMainPage loginToSauceDemoMainPageUsingWebDriverActionsWithHighlighting(User user) {
+    public SauceDemoMainPage loginViaActionsWithHighlighting(User user) {
         clickWebElementUsingActions(inputLogin);
         highlightElement(inputLogin);
-        sendKeysToTheFormUsingActions(user.getUsername());
+        sendKeysViaActions(user.getUsername());
         clickWebElementUsingActions(inputPassword);
         highlightElement(inputPassword);
-        sendKeysToTheFormUsingActions(user.getPassword());
+        sendKeysViaActions(user.getPassword());
         submit.click();
 
         return new SauceDemoMainPage(driver);

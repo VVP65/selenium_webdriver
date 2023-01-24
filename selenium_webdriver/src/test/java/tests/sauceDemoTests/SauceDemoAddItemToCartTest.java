@@ -14,8 +14,8 @@ public class SauceDemoAddItemToCartTest extends BaseTest {
     public void oneCanAddItemToCart() {
         User testUser = UserCreator.getStandardUser();
         String buttonText = new SauceDemoLoginPage(driver)
-                .openSauceDemoLoginPage()
-                .loginToSauceDemoMainPage(testUser)
+                .openLoginPage()
+                .loginToMainPage(testUser)
                 .clickAddToCartButton()
                 .getSauceLabsBackPackItemRemoveFromCartButtonText();
 

@@ -15,8 +15,8 @@ public class SauceDemoMainPageLoginUsingWebDriverActionsTest extends BaseTest {
         User testUser = UserCreator.getStandardUser();
 
         String sauceDemoMainPageURL = new SauceDemoLoginPage(driver)
-                .openSauceDemoLoginPage()
-                .loginToSauceDemoMainPageUsingWebDriverActions(testUser)
+                .openLoginPage()
+                .loginViaActions(testUser)
                 .getPageURL();
 
         assertTrue(sauceDemoMainPageURL.contains("https://www.saucedemo.com/inventory.html"), "Current page does not belong to Sauce Demo project");

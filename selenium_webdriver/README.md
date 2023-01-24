@@ -24,6 +24,8 @@ java -jar selenium-server-<version>.jar hub
 Run as node:
 java -jar selenium-server-<version>.jar node --port ****
 
-Grid tests via terminal run command:
-mvn clean test -Denvironment=dev -Dsuit=testng-grid
+Remote tests via terminal run command:
+mvn clean test -Dbrowser=CHROME_REMOTE -Denvironment=dev -Dsuit=testng-grid
 
+Local tests via terminal run command:
+mvn clean test -Dbrowser=CHROME -Denvironment=dev -Dsuit=testng-grid

@@ -14,8 +14,8 @@ public class SauceDemoCartBadgePresenceTest extends BaseTest {
     public void cartBadgeWasAddedToTheCartLogoAfterAddingItemIntoCartCheck() {
         User testUser = UserCreator.getStandardUser();
         String badgeWasAddedToTheCartLogo = new SauceDemoLoginPage(driver)
-                .openSauceDemoLoginPage()
-                .loginToSauceDemoMainPage(testUser)
+                .openLoginPage()
+                .loginToMainPage(testUser)
                 .clickAddToCartButton()
                 .getCartBadgeMessageAfterItemWasAddedToIt();
 

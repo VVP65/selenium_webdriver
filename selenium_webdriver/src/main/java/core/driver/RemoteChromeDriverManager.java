@@ -1,5 +1,6 @@
 package core.driver;
 
+import core.enums.DriverType;
 import core.service.TestDataReader;
 import org.apache.commons.lang3.NotImplementedException;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -17,7 +18,7 @@ public class RemoteChromeDriverManager extends DriverManager {
         capabilities.setBrowserName(DriverType.CHROME_REMOTE.getBrowser());
 
         try {
-            driver = new RemoteWebDriver(new URL(TestDataReader.getTestData(GRID_URL_PROPERTY)), capabilities);
+            driver = new RemoteWebDriver(new URL(TestDataReader.getEnvData(GRID_URL_PROPERTY)), capabilities);
         } catch (
                 MalformedURLException exception) {
 

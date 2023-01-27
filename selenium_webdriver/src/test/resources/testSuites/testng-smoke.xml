@@ -3,7 +3,7 @@
 <suite name="Smoke Tests" verbose="1">
     <test name="SauceDemoMainPageURLAfterSuccessfulLoginTes">
         <classes>
-            <class name="tests.sauceDemoTests.SauceDemoMainPageURLAfterSuccessfulLoginTest"/>
+            <class name="tests.sauceDemoTests.MainPageURLAfterSuccessfulLoginTest"/>
         </classes>
     </test>
 </suite>

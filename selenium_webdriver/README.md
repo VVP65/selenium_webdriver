@@ -1,31 +1,42 @@
-SELENIUM WD ADVANCED WITH JAVA: ACTIONS, 8JAVASCRIPT EXECUTOR, SELENIUM SERVER + SELENIUM GRID.
+TA FRAMEWORKS: LAYERS, RUNNER, BUSINESS OBJECTS
+HOME TASK
+To build test automation framework based on the task Hardcore from the WebDriver course.
+The framework should have:
 
-hOME TASK
-1.	Convert your project from previous home tasks (Selenium WebDriver) – add at least 2 new Actions implementations 
-(for example: 1 for mouse actions and 1 for keyboard).
-•	If current SUT does not allow to implement any Actions – add some pages for Yandex Disk and implement some Actions on it (such as drag-n-drop (delete a file dragging to the trash bin), context menu actions, multi-selecting files, etc)
-2.	Add at least 2 implementation of JavaScript Executor usage (for example: implement element highlighter, JS Executor based clicker or element finder);
-3.	Set up Selenium Grid with at least two nodes and run all your test suites on the grid.
+1.	WebDriverManager for managing drivers for different browsers;
+2.	PageObject / PageFactory for abstract pages;
+3.	Necessary business model (business objects for dedicated entities);
+4.	Property files with test data for different environments (at least 2);
+5.	XML suites for Smoke and Regression tests;
+6.	Possibility to make a screenshot in case of test failure; The log should have information about the saved screenshot in this case
+7.	Ability of running on Jenkins with parameters for browser, test suite, environment(N/A);
+8.	Add logging of every step (with log4j or any similar lib) for your solution implemented based on previous modules.
+a.	Configure logs format in informative way
+b.	Demonstrate usage of different log levels (debug, action, error, etc)
+c.	Configure ability to write logs in console and to save logs in a file (a new file should be created for each day). By default logs are written in console and are stored in file.
+9.	Test results should present on job graphics, and screenshots should be archived as artifacts.
 
-ACCEPTANCE CRITERIA
-1.	2 or more actions are added to the project. (Have a complex structure – a sequence of several operations).
-2.	2 or more implementation of JavaScript Executor usage are added to the project. 
-3.	There is a rational explanation to use exactly this JavaScript Executor methods and usage of these methods 
-brings profit to the project.
-4.	Selenium Grid is correctly set up. Different capabilities are used during set up.
-5.	There is no code duplication at all.
-6.	Naming and Code Conventions should be followed.
 
-Grid setup commands via CMD:
+Default test via terminal run command:
+mvn clean test
 
-Run as hub:
-java -jar selenium-server-<version>.jar hub
+General tests via terminal run command:
+mvn clean test -Dsuit=<test-suite name without ".xml" extension>
 
-Run as node:
-java -jar selenium-server-<version>.jar node --port ****
+All tests also can be launched manually from the test "Run" menu
 
-Remote tests via terminal run command:
-mvn clean test -Dbrowser=CHROME_REMOTE -Denvironment=dev -Dsuit=testng-grid
+Test run in "Debud mode" is applicable
 
-Local tests via terminal run command:
-mvn clean test -Dbrowser=CHROME -Denvironment=dev -Dsuit=testng-grid
+Test logs can be observed in the "target/logs" folder
+
+Screenshots of failed tests can be observed in the "target/screenshots" folder
+
+"test.properties" file contains of common test resources like:
+*browser value
+*environment value
+*wait value
+
+"qa.properties" and "dev.properties" files contains of individual test resources like:
+*source login page url
+*users credentials
+*grid host url

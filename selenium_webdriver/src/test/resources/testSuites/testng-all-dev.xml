@@ -4,35 +4,35 @@
     <test name="All Dev Tests">
         <parameter name="environment" value="dev"/>
         <classes>
-            <class name="tests.sauceDemoTests.SauceDemoProductQuantityTest">
+            <class name="tests.sauceDemoTests.ProductQuantityTest">
             </class>
         </classes>
     </test>
     <test name="SauceDemoCartBadgePresenceTest">
         <parameter name="environment" value="dev"/>
         <classes>
-            <class name="tests.sauceDemoTests.SauceDemoCartBadgePresenceTest">
+            <class name="tests.sauceDemoTests.CartBadgePresenceTest">
             </class>
         </classes>
     </test>
     <test name="SauceDemoAddItemToCartTest">
         <parameter name="environment" value="dev"/>
         <classes>
-            <class name="tests.sauceDemoTests.SauceDemoAddItemToCartTest">
+            <class name="tests.sauceDemoTests.AddItemToCartTest">
             </class>
         </classes>
     </test>
     <test name="SauceDemoDeleteItemFromCartTest">
         <parameter name="environment" value="dev"/>
         <classes>
-            <class name="tests.sauceDemoTests.SauceDemoDeleteItemFromCartTest">
+            <class name="tests.sauceDemoTests.DeleteItemFromCartTest">
             </class>
         </classes>
     </test>
     <test name="SauceDemoMainPageURLAfterSuccessfulLoginTest">
         <parameter name="environment" value="dev"/>
         <classes>
-            <class name="tests.sauceDemoTests.SauceDemoMainPageURLAfterSuccessfulLoginTest">
+            <class name="tests.sauceDemoTests.MainPageURLAfterSuccessfulLoginTest">
             </class>
         </classes>
     </test>

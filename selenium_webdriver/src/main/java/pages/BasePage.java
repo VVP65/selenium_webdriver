@@ -1,6 +1,8 @@
 package pages;
 
 import core.service.TestDataReader;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +15,8 @@ import java.time.Duration;
 
 public abstract class BasePage {
     protected WebDriver driver;
-    protected static final int TIME_OUT_SECONDS = 20;
+    protected static final String TIME_OUT_PROPERTY = "wait.explicitly";
+    public static Logger logger = LogManager.getRootLogger();
 
     protected BasePage(WebDriver driver) {
         this.driver = driver;
@@ -21,18 +24,18 @@ public abstract class BasePage {
 
     protected static void wait(WebDriver driver) {
         ExpectedCondition<Boolean> pageLoadCondition = driver1 -> ((JavascriptExecutor) driver1).executeScript("return document.readyState").equals("complete");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIME_OUT_SECONDS));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(TestDataReader.getTestData(TIME_OUT_PROPERTY))));
         wait.until(pageLoadCondition);
     }
 
     protected boolean waitForElementVisibility(WebElement element) {
-        new WebDriverWait(driver, Duration.ofSeconds(TIME_OUT_SECONDS)).until(ExpectedConditions.visibilityOf(element));
+        new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(TestDataReader.getTestData(TIME_OUT_PROPERTY)))).until(ExpectedConditions.visibilityOf(element));
 
         return element.isEnabled();
     }
 
     protected BasePage openPage(String url) {
-        driver.get(TestDataReader.getTestData(url));
+        driver.get(TestDataReader.getEnvData(url));
         wait(driver);
 
         return this;

@@ -1,19 +1,21 @@
 package tests.sauceDemoTests;
 
+import core.enums.UserType;
+import core.service.UserCreator;
 import models.User;
 import org.testng.annotations.Test;
-import pages.SauceDemoLoginPage;
-import core.service.UserCreator;
+import pages.LoginPage;
 import tests.BaseTest;
 
 import static org.testng.Assert.assertTrue;
 
-public class SauceDemoMainPageURLAfterSuccessfulLoginTest extends BaseTest {
+public class MainPageURLAfterSuccessfulLoginTest extends BaseTest {
 
     @Test
     public void sauceDemoMainPageURLAfterSuccessfulLoginCheck() {
-        User testUser = UserCreator.getStandardUser();
-        String sauceDemoMainPageURL = new SauceDemoLoginPage(driver)
+        User testUser = UserCreator.getUser(UserType.STANDARD_USER);
+
+        String sauceDemoMainPageURL = new LoginPage(driver)
                 .openLoginPage()
                 .loginToMainPage(testUser)
                 .getPageURL();

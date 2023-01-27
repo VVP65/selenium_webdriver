@@ -3,7 +3,7 @@
 <suite name="Regression Tests" verbose="1">
     <test name="SauceDemoAddItemToCartTest">
         <classes>
-            <class name="tests.sauceDemoTests.SauceDemoAddItemToCartTest"/>
+            <class name="tests.sauceDemoTests.AddItemToCartTest"/>
         </classes>
     </test>
 </suite>

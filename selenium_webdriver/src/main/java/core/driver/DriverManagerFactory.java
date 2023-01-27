@@ -1,5 +1,7 @@
 package core.driver;
 
+import core.enums.DriverType;
+
 public class DriverManagerFactory {
 
     public static DriverManager getManager(DriverType driverType) {

@@ -3,7 +3,7 @@
 <suite name="Live Tests" verbose="1">
     <test name="SauceDemoDeleteItemFromCartTest">
         <classes>
-            <class name="tests.sauceDemoTests.SauceDemoDeleteItemFromCartTest"/>
+            <class name="tests.sauceDemoTests.DeleteItemFromCartTest"/>
         </classes>
     </test>
 </suite>

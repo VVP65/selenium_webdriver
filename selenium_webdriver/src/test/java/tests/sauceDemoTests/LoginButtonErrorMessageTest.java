@@ -1,19 +1,21 @@
 package tests.sauceDemoTests;
 
+import core.enums.UserType;
+import core.service.UserCreator;
 import models.User;
 import org.testng.annotations.Test;
-import pages.SauceDemoLoginPage;
-import core.service.UserCreator;
+import pages.LoginPage;
 import tests.BaseTest;
 
 import static org.testng.Assert.assertEquals;
 
-public class SauceDemoLoginButtonErrorMessageTest extends BaseTest {
+public class LoginButtonErrorMessageTest extends BaseTest {
 
     @Test
     public void lockedUserIsNotAbleToLoginCheck() {
-        User testUser = UserCreator.getLockedOutUser();
-        String sauceDemoLoginButtonErrorMessage = new SauceDemoLoginPage(driver)
+        User testUser = UserCreator.getUser(UserType.LOCKED_OUT_USER);
+
+        String sauceDemoLoginButtonErrorMessage = new LoginPage(driver)
                 .openLoginPage()
                 .loginToMainPage(testUser)
                 .getLoginErrorMessage();

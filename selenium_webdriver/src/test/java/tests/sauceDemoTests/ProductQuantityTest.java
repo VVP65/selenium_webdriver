@@ -1,19 +1,21 @@
 package tests.sauceDemoTests;
 
+import core.enums.UserType;
+import core.service.UserCreator;
 import models.User;
 import org.testng.annotations.Test;
-import pages.SauceDemoLoginPage;
-import core.service.UserCreator;
+import pages.LoginPage;
 import tests.BaseTest;
 
 import static org.testng.Assert.assertEquals;
 
-public class SauceDemoProductQuantityTest extends BaseTest {
+public class ProductQuantityTest extends BaseTest {
 
     @Test
     public void sauceDemoProductQuantityCheck() {
-        User testUser = UserCreator.getStandardUser();
-        int sauceDemoProductQuantity = new SauceDemoLoginPage(driver)
+        User testUser = UserCreator.getUser(UserType.STANDARD_USER);
+
+        int sauceDemoProductQuantity = new LoginPage(driver)
                 .openLoginPage()
                 .loginToMainPage(testUser)
                 .getTheFullItemsListSize();

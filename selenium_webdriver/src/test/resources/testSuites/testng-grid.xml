@@ -3,22 +3,22 @@
 <suite name="Grid Tests" verbose="1">
     <test name="SauceDemoMainPageLoginUsingWebDriverActionsTest">
         <classes>
-            <class name="tests.sauceDemoTests.SauceDemoMainPageLoginUsingWebDriverActionsTest"/>
+            <class name="tests.sauceDemoTests.MainPageLoginUsingWebDriverActionsTest"/>
         </classes>
     </test>
     <test name="-SauceDemoMainPageLoginUsingWebDriverActionsWithHighlightingTest">
         <classes>
-            <class name="tests.sauceDemoTests.SauceDemoMainPageLoginUsingWebDriverActionsWithHighlightingTest"/>
+            <class name="tests.sauceDemoTests.MainPageLoginUsingWebDriverActionsWithHighlightingTest"/>
         </classes>
     </test>
     <test name="SauceDemoMainPageLogoutUsingJavaScriptExecutorTest">
         <classes>
-            <class name="tests.sauceDemoTests.SauceDemoMainPageLogoutUsingJavaScriptExecutorTest"/>
+            <class name="tests.sauceDemoTests.MainPageLogoutUsingJavaScriptExecutorTest"/>
         </classes>
     </test>
     <test name="SauceDemoMainPageLogoutUsingJavaScriptExecutorWithHighlightingTest">
         <classes>
-            <class name="tests.sauceDemoTests.SauceDemoMainPageLogoutUsingJavaScriptExecutorWithHighlightingTest"/>
+            <class name="tests.sauceDemoTests.MainPageLogoutUsingJavaScriptExecutorWithHighlightingTest"/>
         </classes>
     </test>
 </suite>

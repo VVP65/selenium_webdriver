@@ -6,22 +6,35 @@
     <groupId>org.example</groupId>
     <artifactId>selenium_webdriver</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <testng.version>7.4.0</testng.version>
         <log4j.version>1.2.17</log4j.version>
+        <slf4j-simple.version>1.6.1</slf4j-simple.version>
+        <log4j-api.version>2.11.1</log4j-api.version>
+        <log4j-core.version>2.11.1</log4j-core.version>
         <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
         <selenium-java.version>4.7.2</selenium-java.version>
         <webdrivermanager.version>5.3.1</webdrivermanager.version>
-        <slf4j-simple.version>1.6.1</slf4j-simple.version>
         <asertj-core.version>3.24.1</asertj-core.version>
         <lombok.version>1.18.20</lombok.version>
-        <suit>testng-smoke.xls</suit>
-
+        <suit>testng-acceptance</suit>
     </properties>
+
     <dependencies>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-core.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
@@ -42,7 +55,6 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>

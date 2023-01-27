@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SauceDemoLoginPage extends BasePage {
-    private static final String PROPERTY_URL = "testdata.sauceDemo.login.page.url";
+public class LoginPage extends BasePage {
+    private static final String PROPERTY_URL = "sauceDemo.login.page.url";
 
     @FindBy(id = "user-name")
     private WebElement inputLogin;
@@ -18,37 +18,40 @@ public class SauceDemoLoginPage extends BasePage {
     @FindBy(id = "login-button")
     private WebElement submit;
 
-    public SauceDemoLoginPage(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(this.driver, this);
     }
 
-    public SauceDemoLoginPage openLoginPage() {
+    public LoginPage openLoginPage() {
         openPage(PROPERTY_URL);
+        logger.info("Login page is opened");
 
         return this;
     }
 
-    public SauceDemoMainPage loginToMainPage(User user) {
+    public MainPage loginToMainPage(User user) {
         inputLogin.sendKeys(user.getUsername());
         inputPassword.sendKeys(user.getPassword());
         submit.click();
+        logger.info("Main page is opened");
 
-        return new SauceDemoMainPage(driver);
+        return new MainPage(driver);
     }
 
-    public SauceDemoMainPage loginViaActions(User user) {
+    public MainPage loginViaActions(User user) {
         openLoginPage();
         clickWebElementUsingActions(inputLogin);
         sendKeysViaActions(user.getUsername());
         clickWebElementUsingActions(inputPassword);
         sendKeysViaActions(user.getPassword());
         submit.click();
+        logger.info("Login via Webdriver Actions was successful");
 
-        return new SauceDemoMainPage(driver);
+        return new MainPage(driver);
     }
 
-    public SauceDemoMainPage loginViaActionsWithHighlighting(User user) {
+    public MainPage loginViaActionsWithHighlighting(User user) {
         clickWebElementUsingActions(inputLogin);
         highlightElement(inputLogin);
         sendKeysViaActions(user.getUsername());
@@ -56,7 +59,8 @@ public class SauceDemoLoginPage extends BasePage {
         highlightElement(inputPassword);
         sendKeysViaActions(user.getPassword());
         submit.click();
+        logger.info("Login via Webdriver Actions with highlighting was successful");
 
-        return new SauceDemoMainPage(driver);
+        return new MainPage(driver);
     }
 }

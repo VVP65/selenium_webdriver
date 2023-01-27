@@ -3,7 +3,7 @@
 <suite name="Quantity Check Tests" verbose="1">
     <test name="Quantity Check">
         <classes>
-            <class name="tests.sauceDemoTests.SauceDemoProductQuantityTest"/>
+            <class name="tests.sauceDemoTests.ProductQuantityTest"/>
         </classes>
     </test>
 </suite>

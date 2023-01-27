@@ -1,19 +1,21 @@
 package tests.sauceDemoTests;
 
+import core.enums.UserType;
+import core.service.UserCreator;
 import models.User;
 import org.testng.annotations.Test;
-import pages.SauceDemoLoginPage;
-import core.service.UserCreator;
+import pages.LoginPage;
 import tests.BaseTest;
 
 import static org.testng.Assert.assertEquals;
 
-public class SauceDemoDeleteItemFromCartTest extends BaseTest {
+public class DeleteItemFromCartTest extends BaseTest {
 
     @Test
     public void oneCanDeleteItemFromCartCheck() {
-        User testUser = UserCreator.getStandardUser();
-        String buttonText = new SauceDemoLoginPage(driver)
+        User testUser = UserCreator.getUser(UserType.STANDARD_USER);
+
+        String buttonText = new LoginPage(driver)
                 .openLoginPage()
                 .loginToMainPage(testUser)
                 .clickAddToCartButton()

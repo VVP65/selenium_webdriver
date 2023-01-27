@@ -3,7 +3,7 @@
 <suite name="Preprod Tests" verbose="1">
     <test name="SauceDemoLoginButtonErrorMessageTest">
         <classes>
-            <class name="tests.sauceDemoTests.SauceDemoLoginButtonErrorMessageTest"/>
+            <class name="tests.sauceDemoTests.LoginButtonErrorMessageTest"/>
         </classes>
     </test>
 </suite>

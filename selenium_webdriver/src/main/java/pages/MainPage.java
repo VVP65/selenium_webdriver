@@ -14,7 +14,7 @@ public class MainPage extends BasePage {
     static final String CLICK_SCRIPT_BY_BUTTON_ID = "document.getElementById(%s).click()";
 
 
-    @FindBy(xpath = "//button[@name='add-to-cart-sauce-labs-backpac']")
+    @FindBy(xpath = "//button[@name='add-to-cart-sauce-labs-backpack']")
     private WebElement sauceLabsBackPackItemAddToCartButton;
 
     @FindBy(xpath = "//button[@name='remove-sauce-labs-backpack']")

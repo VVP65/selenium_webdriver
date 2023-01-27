@@ -18,10 +18,16 @@ c.	Configure ability to write logs in console and to save logs in a file (a new 
 
 
 Default test via terminal run command:
+Before test run browser value should be changed to "chrome" at "test.properties" file
 mvn clean test
 
 General tests via terminal run command:
+Before test run browser value should be changed to "chrome" at "test.properties" file
 mvn clean test -Dsuit=<test-suite name without ".xml" extension>
+
+Grid tests via terminal run command:
+Before test run browser value should be changed to "chrome_remote" at "test.properties" file
+mvn clean test -Dsuit=testng-grid
 
 All tests also can be launched manually from the test "Run" menu
 

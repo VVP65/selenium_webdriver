@@ -15,7 +15,7 @@ public class RemoteChromeDriverManager extends DriverManager {
 
     public RemoteChromeDriverManager() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setBrowserName(DriverType.CHROME_REMOTE.getBrowser());
+        capabilities.setBrowserName(DriverType.CHROME.getBrowser());
 
         try {
             driver = new RemoteWebDriver(new URL(TestDataReader.getEnvData(GRID_URL_PROPERTY)), capabilities);

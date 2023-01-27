@@ -12,7 +12,7 @@ public enum DriverType {
     CHROME("chrome"),
     FIREFOX("firefox"),
     EDGE("edge"),
-    CHROME_REMOTE("chrome");
+    CHROME_REMOTE("chrome_remote");
 
     private String browser;
 

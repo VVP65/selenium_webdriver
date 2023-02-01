@@ -16,7 +16,7 @@ import java.time.Duration;
 public abstract class BasePage {
     protected WebDriver driver;
     protected static final String TIME_OUT_PROPERTY = "wait.explicitly";
-    public static Logger logger = LogManager.getRootLogger();
+    public Logger logger = LogManager.getRootLogger();
 
     protected BasePage(WebDriver driver) {
         this.driver = driver;

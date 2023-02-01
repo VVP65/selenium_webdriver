@@ -9,9 +9,9 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class MainPage extends BasePage {
-    static final String MENU_BUTTON_ID = "'react-burger-menu-btn'";
-    static final String LOGOUT_BUTTON_ID = "'logout_sidebar_link'";
-    static final String CLICK_SCRIPT_BY_BUTTON_ID = "document.getElementById(%s).click()";
+    final String MENU_BUTTON_ID = "'react-burger-menu-btn'";
+    final String LOGOUT_BUTTON_ID = "'logout_sidebar_link'";
+    final String CLICK_SCRIPT_BY_BUTTON_ID = "document.getElementById(%s).click()";
 
 
     @FindBy(xpath = "//button[@name='add-to-cart-sauce-labs-backpack']")
@@ -59,7 +59,7 @@ public class MainPage extends BasePage {
         return loginErrorButton.getText();
     }
 
-    public String getCartBadgeMessageAfterItemWasAddedToIt() {
+    public String getCartBadgeMessage() {
         logger.info("Cart badge message is present on the cart element on the screen");
 
         return sauceLabsBackPackItemIsAddedToCart.getText();

@@ -21,6 +21,6 @@ public enum DriverType {
         return Arrays.stream(DriverType.values())
                 .filter(type -> type.getBrowser().equals(browser))
                 .findFirst()
-                .orElseThrow(() -> new NotImplementedException());
+                .orElseThrow(() -> new NotImplementedException("No supported Webdriver were found"));
     }
 }

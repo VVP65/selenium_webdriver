@@ -15,11 +15,11 @@ public class MainPageLoginUsingWebDriverActionsTest extends BaseTest {
     public void userCanLogInToMainPageUsingWebDriverActionsCheck() {
         User testUser = UserCreator.getUser(UserType.STANDARD_USER);
 
-        String sauceDemoMainPageURL = new LoginPage(driver)
+        String mainPageURL = new LoginPage(driver)
                 .openLoginPage()
                 .loginViaActions(testUser)
                 .getPageURL();
 
-        assertTrue(sauceDemoMainPageURL.contains("https://www.saucedemo.com/inventory.html"), "Current page does not belong to Sauce Demo project");
+        assertTrue(mainPageURL.contains("https://www.saucedemo.com/inventory.html"), "Current page does not belong to Sauce Demo project");
     }
 }

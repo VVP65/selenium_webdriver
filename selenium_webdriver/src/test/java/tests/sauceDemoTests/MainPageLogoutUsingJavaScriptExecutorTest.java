@@ -15,12 +15,12 @@ public class MainPageLogoutUsingJavaScriptExecutorTest extends BaseTest {
     public void userCanLogoutFromMainPageUsingJavaScriptExecutorCheck() {
         User testUser = UserCreator.getUser(UserType.STANDARD_USER);
 
-        String sauceDemoLoginPageURL = new LoginPage(driver)
+        String actualUrl = new LoginPage(driver)
                 .openLoginPage()
                 .loginToMainPage(testUser)
                 .logoutFromSauceDemoMainPageUsingJavaScriptExecutor(testUser)
                 .getPageURL();
 
-        assertTrue(sauceDemoLoginPageURL.contains("https://www.saucedemo.com"), "Current page does not belong to Sauce Demo project");
+        assertTrue(actualUrl.contains("https://www.saucedemo.com"), "Current page does not belong to Sauce Demo project");
     }
 }

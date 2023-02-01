@@ -15,11 +15,11 @@ public class LoginButtonErrorMessageTest extends BaseTest {
     public void lockedUserIsNotAbleToLoginCheck() {
         User testUser = UserCreator.getUser(UserType.LOCKED_OUT_USER);
 
-        String sauceDemoLoginButtonErrorMessage = new LoginPage(driver)
+        String loginButtonErrorMessage = new LoginPage(driver)
                 .openLoginPage()
                 .loginToMainPage(testUser)
                 .getLoginErrorMessage();
 
-        assertEquals(sauceDemoLoginButtonErrorMessage, "Epic sadface: Sorry, this user has been locked out.", "Current page does not belong to Sauce Demo project");
+        assertEquals(loginButtonErrorMessage, "Epic sadface: Sorry, this user has been locked out.", "Current page does not belong to Sauce Demo project");
     }
 }

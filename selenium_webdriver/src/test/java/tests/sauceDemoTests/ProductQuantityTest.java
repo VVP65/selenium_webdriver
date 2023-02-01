@@ -1,5 +1,6 @@
 package tests.sauceDemoTests;
 
+
 import core.enums.UserType;
 import core.service.UserCreator;
 import models.User;
@@ -15,12 +16,12 @@ public class ProductQuantityTest extends BaseTest {
     public void sauceDemoProductQuantityCheck() {
         User testUser = UserCreator.getUser(UserType.STANDARD_USER);
 
-        int sauceDemoProductQuantity = new LoginPage(driver)
+        int actualQuantity = new LoginPage(driver)
                 .openLoginPage()
                 .loginToMainPage(testUser)
                 .getTheFullItemsListSize();
 
         int expectedQuantity = 6;
-        assertEquals(sauceDemoProductQuantity, expectedQuantity, "Total amount of Sauce Demo Items should be: " + expectedQuantity);
+        assertEquals(actualQuantity, expectedQuantity, "Total amount of Sauce Demo Items should be: " + expectedQuantity);
     }
 }

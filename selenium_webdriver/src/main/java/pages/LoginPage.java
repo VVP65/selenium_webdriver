@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
-    private static final String PROPERTY_URL = "sauceDemo.login.page.url";
+    private final String PROPERTY_URL = "sauceDemo.login.page.url";
 
     @FindBy(id = "user-name")
     private WebElement inputLogin;

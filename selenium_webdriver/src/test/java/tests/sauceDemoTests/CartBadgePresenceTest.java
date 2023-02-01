@@ -15,12 +15,12 @@ public class CartBadgePresenceTest extends BaseTest {
     public void cartBadgeWasAddedToTheCartLogoAfterAddingItemIntoCartCheck() {
         User testUser = UserCreator.getUser(UserType.STANDARD_USER);
 
-        String badgeWasAddedToTheCartLogo = new LoginPage(driver)
+        String cartBadgeMessage = new LoginPage(driver)
                 .openLoginPage()
                 .loginToMainPage(testUser)
                 .clickAddToCartButton()
-                .getCartBadgeMessageAfterItemWasAddedToIt();
+                .getCartBadgeMessage();
 
-        assertEquals(badgeWasAddedToTheCartLogo, "1", "Badge was not successfully added to the cart logo.");
+        assertEquals(cartBadgeMessage, "1", "Badge was not successfully added to the cart logo.");
     }
 }

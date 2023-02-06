@@ -2,7 +2,6 @@ package core.driver;
 
 import core.enums.DriverType;
 import core.service.TestDataReader;
-import org.apache.commons.lang3.NotImplementedException;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -24,7 +23,7 @@ public class RemoteChromeDriverManager extends DriverManager {
 
             exception.printStackTrace();
 
-            throw new NotImplementedException("No supported Webdriver were found. " +
+            throw new RuntimeException("No legal protocol could be found or supported Webdriver were not found. " +
                     "Supported browsers are: Chrome, Firefox, Edge");
         }
     }

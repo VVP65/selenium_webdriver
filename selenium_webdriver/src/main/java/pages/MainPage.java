@@ -13,7 +13,6 @@ public class MainPage extends BasePage {
     final String LOGOUT_BUTTON_ID = "'logout_sidebar_link'";
     final String CLICK_SCRIPT_BY_BUTTON_ID = "document.getElementById(%s).click()";
 
-
     @FindBy(xpath = "//button[@name='add-to-cart-sauce-labs-backpack']")
     private WebElement sauceLabsBackPackItemAddToCartButton;
 

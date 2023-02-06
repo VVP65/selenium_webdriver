@@ -1,5 +1,6 @@
 package pages;
 
+import core.patterns.CustomDriverDecorator;
 import core.service.TestDataReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,12 +14,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public abstract class BasePage {
+public abstract class BasePage extends CustomDriverDecorator {
     protected WebDriver driver;
     protected static final String TIME_OUT_PROPERTY = "wait.explicitly";
     public Logger logger = LogManager.getRootLogger();
 
     protected BasePage(WebDriver driver) {
+        super();
         this.driver = driver;
     }
 

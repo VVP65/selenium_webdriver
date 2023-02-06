@@ -1,20 +1,19 @@
-TA FRAMEWORKS: LAYERS, RUNNER, BUSINESS OBJECTS
-HOME TASK
-To build test automation framework based on the task Hardcore from the WebDriver course.
-The framework should have:
+DESIGN PATTERNS IN TA FRAMEWORKS IMPLEMENTATION
 
-1.	WebDriverManager for managing drivers for different browsers;
-2.	PageObject / PageFactory for abstract pages;
-3.	Necessary business model (business objects for dedicated entities);
-4.	Property files with test data for different environments (at least 2);
-5.	XML suites for Smoke and Regression tests;
-6.	Possibility to make a screenshot in case of test failure; The log should have information about the saved screenshot in this case
-7.	Ability of running on Jenkins with parameters for browser, test suite, environment(N/A);
-8.	Add logging of every step (with log4j or any similar lib) for your solution implemented based on previous modules.
-a.	Configure logs format in informative way
-b.	Demonstrate usage of different log levels (debug, action, error, etc)
-c.	Configure ability to write logs in console and to save logs in a file (a new file should be created for each day). By default logs are written in console and are stored in file.
-9.	Test results should present on job graphics, and screenshots should be archived as artifacts.
+HOME TASK
+1.	Implement the following design patterns in your solution from previous module*:
+a.	Singleton
+b.	Factory Method
+c.	Decorator
+
+ACCEPTANCE CRITERIA
+1.	PATTERNS: All patterns from mandatory part (Singleton, Factory Method, Decorator) should be implemented.
+2.	PATTERNS: Classes which were modified/created during pattern implementation should be invoked during the test run. Just storing them in project packages is NOT enough.
+3.	S.O.L.I.D.: Code is revised to match S.O.L.I.D. principles. 
+4.	S.O.L.I.D.: at least 3 fixes are described within the table per example above and delivered to a mentor.
+5.	S.O.L.I.D.: fixes are implemented in code structure. 
+6.	BONUS TASK: extra patterns mentioned during the training session are implemented considering criteria from point #2 above.
+
 
 
 Default test via terminal run command:

@@ -16,7 +16,7 @@ public class ProductQuantityTest extends BaseTest {
     public void sauceDemoProductQuantityCheck() {
         User testUser = UserCreator.getUser(UserType.STANDARD_USER);
 
-        int actualQuantity = new LoginPage(driver)
+        int actualQuantity = new LoginPage()
                 .openLoginPage()
                 .loginToMainPage(testUser)
                 .getTheFullItemsListSize();

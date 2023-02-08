@@ -15,7 +15,7 @@ public class CartBadgePresenceTest extends BaseTest {
     public void cartBadgeWasAddedToTheCartLogoAfterAddingItemIntoCartCheck() {
         User testUser = UserCreator.getUser(UserType.STANDARD_USER);
 
-        String cartBadgeMessage = new LoginPage(driver)
+        String cartBadgeMessage = new LoginPage()
                 .openLoginPage()
                 .loginToMainPage(testUser)
                 .clickAddToCartButton()

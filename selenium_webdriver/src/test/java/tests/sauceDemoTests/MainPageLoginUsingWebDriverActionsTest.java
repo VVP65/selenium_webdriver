@@ -15,7 +15,7 @@ public class MainPageLoginUsingWebDriverActionsTest extends BaseTest {
     public void userCanLogInToMainPageUsingWebDriverActionsCheck() {
         User testUser = UserCreator.getUser(UserType.STANDARD_USER);
 
-        String mainPageURL = new LoginPage(driver)
+        String mainPageURL = new LoginPage()
                 .openLoginPage()
                 .loginViaActions(testUser)
                 .getPageURL();

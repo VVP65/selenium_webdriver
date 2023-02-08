@@ -1,14 +1,23 @@
 package pages;
 
+import core.driver.DriverSingleton;
+import core.service.TestDataReader;
 import models.User;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPage extends BasePage {
-    private final String PROPERTY_URL = "sauceDemo.login.page.url";
+
+    private static final String PROPERTY_URL = "sauceDemo.login.page.url";
+    private static final String TIME_OUT_PROPERTY = "wait.explicitly";
+    private static final String LOGIN_BUTTON_ID = "login-button";
+
 
     @FindBy(id = "user-name")
     private WebElement inputLogin;
@@ -19,15 +28,27 @@ public class LoginPage extends BasePage {
     @FindBy(id = "login-button")
     private WebElement submit;
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    public LoginPage() {
+        super(DriverSingleton.getInstance().getDriver());
         PageFactory.initElements(this.driver, this);
+    }
+
+    public void waitForLoginButtonPresence() {
+        new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(TestDataReader
+                .getTestData(TIME_OUT_PROPERTY))))
+                .until(ExpectedConditions.presenceOfElementLocated(By.id(LOGIN_BUTTON_ID)));
+    }
+
+    public LoginPage openPage(String url) {
+        driver.get(TestDataReader.getEnvData(url));
+        waitForLoginButtonPresence();
+
+        return this;
     }
 
     public LoginPage openLoginPage() {
         openPage(PROPERTY_URL);
         logger.info("Login page is opened");
-        findElement(By.linkText(PROPERTY_URL));
         return this;
     }
 
@@ -37,7 +58,7 @@ public class LoginPage extends BasePage {
         submit.click();
         logger.info("Main page is opened");
 
-        return new MainPage(driver);
+        return new MainPage();
     }
 
     public MainPage loginViaActions(User user) {
@@ -49,19 +70,6 @@ public class LoginPage extends BasePage {
         submit.click();
         logger.info("Login via Webdriver Actions was successful");
 
-        return new MainPage(driver);
-    }
-
-    public MainPage loginViaActionsWithHighlighting(User user) {
-        clickWebElementUsingActions(inputLogin);
-        highlightElement(inputLogin);
-        sendKeysViaActions(user.getUsername());
-        clickWebElementUsingActions(inputPassword);
-        highlightElement(inputPassword);
-        sendKeysViaActions(user.getPassword());
-        submit.click();
-        logger.info("Login via Webdriver Actions with highlighting was successful");
-
-        return new MainPage(driver);
+        return new MainPage();
     }
 }

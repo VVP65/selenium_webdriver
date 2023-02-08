@@ -15,7 +15,7 @@ public class LoginButtonErrorMessageTest extends BaseTest {
     public void lockedUserIsNotAbleToLoginCheck() {
         User testUser = UserCreator.getUser(UserType.LOCKED_OUT_USER);
 
-        String loginButtonErrorMessage = new LoginPage(driver)
+        String loginButtonErrorMessage = new LoginPage()
                 .openLoginPage()
                 .loginToMainPage(testUser)
                 .getLoginErrorMessage();

@@ -15,7 +15,7 @@ public class DeleteItemFromCartTest extends BaseTest {
     public void oneCanDeleteItemFromCartCheck() {
         User testUser = UserCreator.getUser(UserType.STANDARD_USER);
 
-        String buttonText = new LoginPage(driver)
+        String buttonText = new LoginPage()
                 .openLoginPage()
                 .loginToMainPage(testUser)
                 .clickAddToCartButton()

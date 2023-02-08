@@ -1,7 +1,6 @@
 package pages;
 
-import models.User;
-import org.openqa.selenium.WebDriver;
+import core.driver.DriverSingleton;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -9,9 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class MainPage extends BasePage {
-    final String MENU_BUTTON_ID = "'react-burger-menu-btn'";
-    final String LOGOUT_BUTTON_ID = "'logout_sidebar_link'";
-    final String CLICK_SCRIPT_BY_BUTTON_ID = "document.getElementById(%s).click()";
 
     @FindBy(xpath = "//button[@name='add-to-cart-sauce-labs-backpack']")
     private WebElement sauceLabsBackPackItemAddToCartButton;
@@ -34,22 +30,22 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//div[@class='inventory_item_name']")
     private List<WebElement> sauceDemoItemsList;
 
-    public MainPage(WebDriver driver) {
-        super(driver);
+    public MainPage() {
+        super(DriverSingleton.getInstance().getDriver());
         PageFactory.initElements(this.driver, this);
     }
 
     public MainPage clickAddToCartButton() {
         sauceLabsBackPackItemAddToCartButton.click();
 
-        return new MainPage(driver);
+        return this;
     }
 
     public MainPage clickDeleteFromCartButton() {
         sauceLabsBackPackItemRemoveFromCartButton.click();
         logger.info("I click to Delete from cart button");
 
-        return new MainPage(driver);
+        return this;
     }
 
     public String getLoginErrorMessage() {
@@ -80,15 +76,5 @@ public class MainPage extends BasePage {
         logger.info("I can see the full list of items on the screen");
 
         return sauceDemoItemsList.size();
-    }
-
-    public MainPage logoutFromSauceDemoMainPageUsingJavaScriptExecutor(User user) {
-        highlightElement(menuButton);
-        clickElementUsingJavaScriptExecutor(String.format(CLICK_SCRIPT_BY_BUTTON_ID, MENU_BUTTON_ID));
-        highlightElement(logoutButton);
-        clickElementUsingJavaScriptExecutor(String.format(CLICK_SCRIPT_BY_BUTTON_ID, LOGOUT_BUTTON_ID));
-        logger.debug("Logout using JavaScript Executor was successful");
-
-        return new MainPage(driver);
     }
 }

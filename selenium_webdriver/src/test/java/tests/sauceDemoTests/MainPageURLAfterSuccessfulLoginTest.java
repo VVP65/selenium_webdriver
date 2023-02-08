@@ -15,7 +15,7 @@ public class MainPageURLAfterSuccessfulLoginTest extends BaseTest {
     public void sauceDemoMainPageURLAfterSuccessfulLoginCheck() {
         User testUser = UserCreator.getUser(UserType.STANDARD_USER);
 
-        String sauceDemoMainPageURL = new LoginPage(driver)
+        String sauceDemoMainPageURL = new LoginPage()
                 .openLoginPage()
                 .loginToMainPage(testUser)
                 .getPageURL();

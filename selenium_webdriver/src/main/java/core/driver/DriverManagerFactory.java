@@ -20,6 +20,8 @@ public class DriverManagerFactory {
             case EDGE:
                 driverManager = new EdgeDriverManager();
                 break;
+            case CHROME_DECORATOR:
+                driverManager = new ChromeDecoratorDriverManager();
         }
 
         return driverManager;

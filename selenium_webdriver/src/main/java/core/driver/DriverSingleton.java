@@ -1,33 +1,31 @@
 package core.driver;
 
+import core.enums.DriverType;
+import core.service.TestDataReader;
+import lombok.Getter;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
+@Getter
 public class DriverSingleton {
 
-    private static WebDriver driver;
-    private static final String browserName = "chrome";
+    private static DriverSingleton instance;
+    private WebDriver driver;
 
-    public static WebDriver driverInitialize() {
-        if (driver == null) {
-            if (browserName.equalsIgnoreCase("chrome")) {
-                driver = new ChromeDriver();
-
-            } else if (browserName.equalsIgnoreCase("firefox")) {
-                driver = new FirefoxDriver();
-
-            } else if (browserName.equalsIgnoreCase("edge")) {
-                driver = new EdgeDriver();
-            }
-        }
-
-        return driver;
+    private DriverSingleton() {
+        DriverType driverType = DriverType.getType((TestDataReader.getTestData("browser")));
+        driver = DriverManagerFactory.getManager(driverType).getDriver();
     }
 
-    public static void closeDriver() {
+    public static DriverSingleton getInstance() {
+        if (instance == null) {
+            instance = new DriverSingleton();
+        }
+
+        return instance;
+    }
+
+    public void close() {
         driver.quit();
-        driver = null;
+        instance = null;
     }
 }

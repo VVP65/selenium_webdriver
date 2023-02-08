@@ -20,6 +20,14 @@ Default test via terminal run command:
 Before test run browser value should be changed to "chrome" at "test.properties" file
 mvn clean test
 
+Default decorated test via terminal run command:
+Before test run browser value should be changed to "chrome_decorator" at "test.properties" file
+mvn clean test
+
+General decorated test via terminal run command:
+Before test run browser value should be changed to "chrome_decorator" at "test.properties" file
+mvn clean test -Dsuit=<test-suite name without ".xml" extension>
+
 General tests via terminal run command:
 Before test run browser value should be changed to "chrome" at "test.properties" file
 mvn clean test -Dsuit=<test-suite name without ".xml" extension>

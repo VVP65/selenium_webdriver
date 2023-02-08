@@ -16,9 +16,6 @@ public class CustomDriverDecorator implements WebDriver {
         this.driver = driver;
     }
 
-    public CustomDriverDecorator() {
-    }
-
     public void get(String url) {
         driver.get(url);
     }

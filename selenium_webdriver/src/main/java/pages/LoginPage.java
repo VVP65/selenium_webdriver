@@ -49,6 +49,7 @@ public class LoginPage extends BasePage {
     public LoginPage openLoginPage() {
         openPage(PROPERTY_URL);
         logger.info("Login page is opened");
+
         return this;
     }
 

@@ -1,28 +1,55 @@
-SELENIUM WEBDRIVER FOR JAVA
+DESIGN PATTERNS IN TA FRAMEWORKS IMPLEMENTATION
 
 HOME TASK
+1.	Implement the following design patterns in your solution from previous module*:
+a.	Singleton
+b.	Factory Method
+c.	Decorator
 
-1.	WebDriver + Java + TestNG
- 
-•	Select a system under test (preferable: web application being tested during your project activities);
-•	Agree with your mentor and document 3 scenarios to automate. The scenarios should be linear (no need to implement complex logic for now) and contain 8-10 simple steps;
-•	Use WebDriver API as much as possible (browser navigation, clicks, switchTo and etc.);
-•	Use several locator strategies i.e. different types of locators (and select the most suitable in your case);
-•	Experiment with waits (implicit and explicit);
-•	Extend your scenario with usage of  Page Object / Page Factory patterns.
+ACCEPTANCE CRITERIA
+1.	PATTERNS: All patterns from mandatory part (Singleton, Factory Method, Decorator) should be implemented.
+2.	PATTERNS: Classes which were modified/created during pattern implementation should be invoked during the test run. Just storing them in project packages is NOT enough.
+3.	S.O.L.I.D.: Code is revised to match S.O.L.I.D. principles. 
+4.	S.O.L.I.D.: at least 3 fixes are described within the table per example above and delivered to a mentor.
+5.	S.O.L.I.D.: fixes are implemented in code structure. 
+6.	BONUS TASK: extra patterns mentioned during the training session are implemented considering criteria from point #2 above.
 
-2.ACCEPTANCE CRITERIA
 
-1.	The scenarios are linear (no need to implement complex logic for now). 3 scenarios in total.
-2.	Different locator strategies are used for a task.
-3.	Usage of auto-generated locators is avoided.
-4.	WebDriver API is widely used.
-5.	Different methods of waits are used.
-6.	Test scenarios are clear, stable and good structured.
-7.	Each method in test scenario has assertions.
-8.	Page Objects have consistent structure (decomposition of PO is right).
-9.	Test scenarios are clear, stable and good structured.
-10.	There is at least one level of inheritance between pages (Abstract Page exists).
-11.	There is no code duplication at all.
-12.	Inner implementation of PO is hidden from tests.
-13.	Naming and Code Conventions should be followed.
+
+Default test via terminal run command:
+Before test run browser value should be changed to "chrome" at "test.properties" file
+mvn clean test
+
+Default decorated test via terminal run command:
+Before test run browser value should be changed to "chrome_decorator" at "test.properties" file
+mvn clean test
+
+General decorated test via terminal run command:
+Before test run browser value should be changed to "chrome_decorator" at "test.properties" file
+mvn clean test -Dsuit=<test-suite name without ".xml" extension>
+
+General tests via terminal run command:
+Before test run browser value should be changed to "chrome" at "test.properties" file
+mvn clean test -Dsuit=<test-suite name without ".xml" extension>
+
+Grid tests via terminal run command:
+Before test run browser value should be changed to "chrome_remote" at "test.properties" file
+mvn clean test -Dsuit=testng-grid
+
+All tests also can be launched manually from the test "Run" menu
+
+Test run in "Debud mode" is applicable
+
+Test logs can be observed in the "target/logs" folder
+
+Screenshots of failed tests can be observed in the "target/screenshots" folder
+
+"test.properties" file contains of common test resources like:
+*browser value
+*environment value
+*wait value
+
+"qa.properties" and "dev.properties" files contains of individual test resources like:
+*source login page url
+*users credentials
+*grid host url

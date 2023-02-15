@@ -28,3 +28,5 @@ mvn clean test
 
 General tests via terminal run command:
 mvn clean test -Dsuit=<test-suite name without ".xml" extension>
+
+General tests manual run can also be done via "Run" menu button in every test file.

@@ -1,55 +1,30 @@
-DESIGN PATTERNS IN TA FRAMEWORKS IMPLEMENTATION
-
+AUTOMATED TESTING OF WEB SERVICES BEST PRACTICES
 HOME TASK
-1.	Implement the following design patterns in your solution from previous module*:
-a.	Singleton
-b.	Factory Method
-c.	Decorator
+if mentee's project has something to do with REST web-services, the tasks that are described below should be done using a mentee's REST web-service. Mentor is allowed to tailor given tasks to mentee’s REST web-service without losing a sense of the given tasks. Otherwise, it should be done using the provided REST web-service. 
+1.	Create a test to verify a http status code:
+o	Send the http request by using the GET method.
+o	The URL is https://jsonplaceholder.typicode.com/users
+o	Validation: status code of the obtained response is 200 OK
+2.	Create a test to verify a http response header:
+o	Send the http request by using the GET method. 
+o	The URL is https://jsonplaceholder.typicode.com/users
+o	Validation: - the content-type header exists in the obtained response
+                                    - the value of the content-type header is application/json; charset=utf-8
+3.	Create a test to verify a http response body:
+o	Send the http request by using the GET method:
+o	The URL is https://jsonplaceholder.typicode.com/users
+o	Validation: the content of the response body is the array of 10 users
 
 ACCEPTANCE CRITERIA
-1.	PATTERNS: All patterns from mandatory part (Singleton, Factory Method, Decorator) should be implemented.
-2.	PATTERNS: Classes which were modified/created during pattern implementation should be invoked during the test run. Just storing them in project packages is NOT enough.
-3.	S.O.L.I.D.: Code is revised to match S.O.L.I.D. principles. 
-4.	S.O.L.I.D.: at least 3 fixes are described within the table per example above and delivered to a mentor.
-5.	S.O.L.I.D.: fixes are implemented in code structure. 
-6.	BONUS TASK: extra patterns mentioned during the training session are implemented considering criteria from point #2 above.
-
-
+1.	Tests should be created using either Rest Assured or/and Spring Rest Template.
+2.	Tests have to include validations that are given.
+3.	Implemented tests should be readable.
+4.	Tests must be implemented so that they could be launched in parallel.
+5.	Naming and Code Conventions should be followed.
+6.	As for tests of the bonus task, they should be created to test CRUD operations of the given resource.
 
 Default test via terminal run command:
-Before test run browser value should be changed to "chrome" at "test.properties" file
 mvn clean test
-
-Default decorated test via terminal run command:
-Before test run browser value should be changed to "chrome_decorator" at "test.properties" file
-mvn clean test
-
-General decorated test via terminal run command:
-Before test run browser value should be changed to "chrome_decorator" at "test.properties" file
-mvn clean test -Dsuit=<test-suite name without ".xml" extension>
 
 General tests via terminal run command:
-Before test run browser value should be changed to "chrome" at "test.properties" file
 mvn clean test -Dsuit=<test-suite name without ".xml" extension>
-
-Grid tests via terminal run command:
-Before test run browser value should be changed to "chrome_remote" at "test.properties" file
-mvn clean test -Dsuit=testng-grid
-
-All tests also can be launched manually from the test "Run" menu
-
-Test run in "Debud mode" is applicable
-
-Test logs can be observed in the "target/logs" folder
-
-Screenshots of failed tests can be observed in the "target/screenshots" folder
-
-"test.properties" file contains of common test resources like:
-*browser value
-*environment value
-*wait value
-
-"qa.properties" and "dev.properties" files contains of individual test resources like:
-*source login page url
-*users credentials
-*grid host url

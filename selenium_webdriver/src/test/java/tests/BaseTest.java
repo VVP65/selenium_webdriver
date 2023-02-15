@@ -1,21 +1,15 @@
 package tests;
 
-import core.driver.DriverSingleton;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import core.service.TestDataReader;
+import io.restassured.RestAssured;
+import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
 
-    @BeforeMethod()
-    public void browserSetUp() {
-        WebDriver driver = DriverSingleton.getInstance().getDriver();
-        driver.manage().window().maximize();
-    }
+    private static final String BASE_URI = "base.uri";
 
-    @AfterMethod(alwaysRun = true)
-    public void browserTearDown() {
-
-        DriverSingleton.getInstance().close();
+    @BeforeTest
+    public void initialTest() {
+        RestAssured.baseURI = TestDataReader.getTestData(BASE_URI);
     }
 }

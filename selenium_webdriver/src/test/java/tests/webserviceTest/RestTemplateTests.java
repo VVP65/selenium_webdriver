@@ -37,7 +37,6 @@ public class RestTemplateTests extends BaseTest {
         ResponseEntity<User[]> response = restTemplate.getForEntity("http://jsonplaceholder.typicode.com/users", User[].class);
         User[] userId = response.getBody();
 
-        assert userId != null;
         assertThat(userId).hasSize(10);
     }
 }

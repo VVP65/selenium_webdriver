@@ -33,7 +33,7 @@ public class RestAssuredTests extends BaseTest {
         Response response = when()
                 .get("/users")
                 .andReturn();
-        ResponseBody<?> responseBody = response.getBody();
+        ResponseBody responseBody = response.getBody();
         User[] users = responseBody.as(User[].class);
         assertThat(users).hasSize(10);
     }

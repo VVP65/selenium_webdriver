@@ -1,28 +1,32 @@
-SELENIUM WEBDRIVER FOR JAVA
-
+AUTOMATED TESTING OF WEB SERVICES BEST PRACTICES
 HOME TASK
+if mentee's project has something to do with REST web-services, the tasks that are described below should be done using a mentee's REST web-service. Mentor is allowed to tailor given tasks to mentee’s REST web-service without losing a sense of the given tasks. Otherwise, it should be done using the provided REST web-service. 
+1.	Create a test to verify a http status code:
+o	Send the http request by using the GET method.
+o	The URL is https://jsonplaceholder.typicode.com/users
+o	Validation: status code of the obtained response is 200 OK
+2.	Create a test to verify a http response header:
+o	Send the http request by using the GET method. 
+o	The URL is https://jsonplaceholder.typicode.com/users
+o	Validation: - the content-type header exists in the obtained response
+                                    - the value of the content-type header is application/json; charset=utf-8
+3.	Create a test to verify a http response body:
+o	Send the http request by using the GET method:
+o	The URL is https://jsonplaceholder.typicode.com/users
+o	Validation: the content of the response body is the array of 10 users
 
-1.	WebDriver + Java + TestNG
- 
-•	Select a system under test (preferable: web application being tested during your project activities);
-•	Agree with your mentor and document 3 scenarios to automate. The scenarios should be linear (no need to implement complex logic for now) and contain 8-10 simple steps;
-•	Use WebDriver API as much as possible (browser navigation, clicks, switchTo and etc.);
-•	Use several locator strategies i.e. different types of locators (and select the most suitable in your case);
-•	Experiment with waits (implicit and explicit);
-•	Extend your scenario with usage of  Page Object / Page Factory patterns.
+ACCEPTANCE CRITERIA
+1.	Tests should be created using either Rest Assured or/and Spring Rest Template.
+2.	Tests have to include validations that are given.
+3.	Implemented tests should be readable.
+4.	Tests must be implemented so that they could be launched in parallel.
+5.	Naming and Code Conventions should be followed.
+6.	As for tests of the bonus task, they should be created to test CRUD operations of the given resource.
 
-2.ACCEPTANCE CRITERIA
+Default test via terminal run command:
+mvn clean test
 
-1.	The scenarios are linear (no need to implement complex logic for now). 3 scenarios in total.
-2.	Different locator strategies are used for a task.
-3.	Usage of auto-generated locators is avoided.
-4.	WebDriver API is widely used.
-5.	Different methods of waits are used.
-6.	Test scenarios are clear, stable and good structured.
-7.	Each method in test scenario has assertions.
-8.	Page Objects have consistent structure (decomposition of PO is right).
-9.	Test scenarios are clear, stable and good structured.
-10.	There is at least one level of inheritance between pages (Abstract Page exists).
-11.	There is no code duplication at all.
-12.	Inner implementation of PO is hidden from tests.
-13.	Naming and Code Conventions should be followed.
+General tests via terminal run command:
+mvn clean test -Dsuit=<test-suite name without ".xml" extension>
+
+General tests manual run can also be done via "Run" menu button in every test file.

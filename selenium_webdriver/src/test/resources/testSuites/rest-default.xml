@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Rest Default Tests" verbose="1">
+    <test name="Rest Default Tests">
+        <classes>
+            <class name="tests.webserviceTest.RestTemplateTests">
+            </class>
+        </classes>
+    </test>
+    <test name="Rest Assured Tests">
+        <classes>
+            <class name="tests.webserviceTest.RestAssuredTests">
+            </class>
+        </classes>
+    </test>
+
+</suite>

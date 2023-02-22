@@ -14,13 +14,14 @@ import java.time.Duration;
 
 public class LoginPage extends BasePage {
 
-    private static final String PROPERTY_URL = "sauceDemo.login.page.url";
+    private static final String LOGIN_PAGE_PROPERTY_URL = "sauceDemo.login.page.url";
     private static final String TIME_OUT_PROPERTY = "wait.explicitly";
     private static final String LOGIN_BUTTON_ID = "login-button";
 
 
     @FindBy(id = "user-name")
     private WebElement inputLogin;
+
 
     @FindBy(id = "password")
     private WebElement inputPassword;
@@ -47,7 +48,7 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage openLoginPage() {
-        openPage(PROPERTY_URL);
+        openPage(LOGIN_PAGE_PROPERTY_URL);
         logger.info("Login page is opened");
 
         return this;

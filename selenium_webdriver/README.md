@@ -11,4 +11,4 @@ ACCEPTANCE CRITERIA
 Cucumber tests via terminal run command:
 mvn clean test
 
-Cucumber tests can also be launched manually from the "Run" command in the "CucumberTestRunner.class" at line 15.
+Cucumber tests can also be launched manually from the "Run" command in the "CucumberTestRunner.class" at the line 15.

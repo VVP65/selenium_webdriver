@@ -1,6 +1,6 @@
-Feature: Login to Main Page
+Feature: Login
 
-  Scenario: Login to Main Page
+  Scenario: Login
     Given User opened Login page
     When  User logs in with 'STANDARD_USER' credentials
     Then  User can see Main page url

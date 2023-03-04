@@ -15,6 +15,13 @@ public class LoginPageStepDefinitions {
 
     public static final String MAIN_PAGE_PROPERTY_URL = "sauceDemo.main.page.url";
 
+    @Given("User Logged in to Main page with '{}' credentials")
+    public void userLoggedInToMainPage(UserType userType) {
+        openLoginPage();
+        userLogsInWithCredentials(userType);
+        userCanSeeMainPageUrl();
+    }
+
     @Given("User opened Login page")
     public void openLoginPage() {
         new LoginPage().openLoginPage();
@@ -28,6 +35,6 @@ public class LoginPageStepDefinitions {
     @Then("User can see Main page url")
     public void userCanSeeMainPageUrl() {
         String mainPageURLActualResult = new MainPage().getPageURL();
-        assertThat(mainPageURLActualResult.contains(TestDataReader.getEnvData(MAIN_PAGE_PROPERTY_URL)));
+        assertThat(mainPageURLActualResult).contains(TestDataReader.getEnvData(MAIN_PAGE_PROPERTY_URL));
     }
 }

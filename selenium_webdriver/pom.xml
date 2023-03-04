@@ -22,10 +22,7 @@
         <webdrivermanager.version>5.3.1</webdrivermanager.version>
         <asertj-core.version>3.24.2</asertj-core.version>
         <lombok.version>1.18.20</lombok.version>
-        <cucumber-java.version>7.11.1</cucumber-java.version>
-        <cucumber-testng.version>7.11.1</cucumber-testng.version>
-        <cucumber-core.version>7.11.1</cucumber-core.version>
-        <asertj-core.version>3.24.1</asertj-core.version>
+        <cucumber-library.version>7.11.1</cucumber-library.version>
         <suite>testng-cucumber</suite>
     </properties>
     <dependencies>
@@ -74,17 +71,17 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>${cucumber-java.version}</version>
+            <version>${cucumber-library.version}</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
-            <version>${cucumber-testng.version}</version>
+            <version>${cucumber-library.version}</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-core</artifactId>
-            <version>${cucumber-core.version}</version>
+            <version>${cucumber-library.version}</version>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Quantity Check Tests" verbose="1">
+    <test name="Quantity Check">
+        <classes>
+            <class name="tests.sauceDemoTests.ProductQuantityTest"/>
+        </classes>
+    </test>
+</suite>

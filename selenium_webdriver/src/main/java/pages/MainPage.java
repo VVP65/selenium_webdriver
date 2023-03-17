@@ -1,38 +1,22 @@
 package pages;
 
-import core.driver.DriverSingleton;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
 
-import java.util.List;
-
-public class MainPage extends BasePage {
+public class MainPage extends PageObject {
 
     @FindBy(xpath = "//button[@name='add-to-cart-sauce-labs-backpack']")
-    private WebElement sauceLabsBackPackItemAddToCartButton;
+    private WebElementFacade sauceLabsBackPackItemAddToCartButton;
 
     @FindBy(xpath = "//button[@name='remove-sauce-labs-backpack']")
-    private WebElement sauceLabsBackPackItemRemoveFromCartButton;
-
-    @FindBy(xpath = "//span[@class='shopping_cart_badge']")
-    public WebElement sauceLabsBackPackItemIsAddedToCart;
+    private WebElementFacade sauceLabsBackPackItemRemoveFromCartButton;
 
     @FindBy(xpath = "//h3[@Data-test='error']")
-    private WebElement loginErrorButton;
+    private WebElementFacade loginErrorButton;
 
-    @FindBy(xpath = "//button[@id='react-burger-menu-btn']")
-    private WebElement menuButton;
-
-    @FindBy(xpath = "//a[@id='logout_sidebar_link']")
-    private WebElement logoutButton;
-
-    @FindBy(xpath = "//div[@class='inventory_item_name']")
-    private List<WebElement> sauceDemoItemsList;
-
-    public MainPage() {
-        super(DriverSingleton.getInstance().getDriver());
-        PageFactory.initElements(this.driver, this);
+    public String getPageURL() {
+        return getDriver().getCurrentUrl();
     }
 
     public MainPage clickAddToCartButton() {
@@ -41,40 +25,11 @@ public class MainPage extends BasePage {
         return this;
     }
 
-    public MainPage clickDeleteFromCartButton() {
-        sauceLabsBackPackItemRemoveFromCartButton.click();
-        logger.info("I click to Delete from cart button");
-
-        return this;
-    }
-
     public String getLoginErrorMessage() {
-        logger.debug("Login was unsuccessful");
-
         return loginErrorButton.getText();
     }
 
-    public String getCartBadgeMessage() {
-        logger.info("Cart badge message is present on the cart element on the screen");
-
-        return sauceLabsBackPackItemIsAddedToCart.getText();
-    }
-
-    public String getSauceLabsBackPackItemAddToCartButtonText() {
-        logger.info("Sauce LabsBack Pack Item was added to cart");
-
-        return sauceLabsBackPackItemAddToCartButton.getText();
-    }
-
     public String getSauceLabsBackPackItemRemoveFromCartButtonText() {
-        logger.info("Sauce LabsBack Pack Item was removed from cart");
-
         return sauceLabsBackPackItemRemoveFromCartButton.getText();
-    }
-
-    public int getTheFullItemsListSize() {
-        logger.info("I can see the full list of items on the screen");
-
-        return sauceDemoItemsList.size();
     }
 }

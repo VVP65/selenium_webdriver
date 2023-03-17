@@ -1,8 +1,10 @@
 package tests.cucumberTestRunner;
 
-import io.cucumber.testng.AbstractTestNGCucumberTests;
-import io.cucumber.testng.CucumberOptions;
+import io.cucumber.junit.CucumberOptions;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
+import org.junit.runner.RunWith;
 
+@RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         plugin = {
                 "pretty", "json:target/Cucumber.json",
@@ -12,5 +14,5 @@ import io.cucumber.testng.CucumberOptions;
         features = "src/test/resources"
 )
 
-public class CucumberTestRunner extends AbstractTestNGCucumberTests {
+public class CucumberTestRunner {
 }

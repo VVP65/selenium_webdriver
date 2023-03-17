@@ -6,6 +6,7 @@ import core.service.UserCreator;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.fluentlenium.core.annotation.Page;
 import pages.LoginPage;
 import pages.MainPage;
 
@@ -16,6 +17,12 @@ public class LoginPageStepDefinitions {
     public static final String MAIN_PAGE_PROPERTY_URL = "sauceDemo.main.page.url";
     public static final String UNSUCCESSFUL_LOGIN_MESSAGE = "unsuccessful.login.message";
 
+    @Page
+    LoginPage loginPage;
+
+    @Page
+    MainPage mainPage;
+
     @Given("User Logged in to Main page with '{}' credentials")
     public void userLoggedInToMainPage(UserType userType) {
         openLoginPage();
@@ -25,23 +32,23 @@ public class LoginPageStepDefinitions {
 
     @Given("User opened Login page")
     public void openLoginPage() {
-        new LoginPage().openLoginPage();
+        loginPage.openLoginPage();
     }
 
     @When("User logs in with '{}' credentials")
     public void userLogsInWithCredentials(UserType userType) {
-        new LoginPage().loginToMainPage(UserCreator.getUser(userType));
+        loginPage.loginToMainPage(UserCreator.getUser(userType));
     }
 
     @Then("User can see Main page url")
     public void userCanSeeMainPageUrl() {
-        String mainPageURLActualResult = new MainPage().getPageURL();
+        String mainPageURLActualResult = mainPage.getPageURL();
         assertThat(mainPageURLActualResult).contains(TestDataReader.getEnvData(MAIN_PAGE_PROPERTY_URL));
     }
 
     @Then("User can see login error message")
     public void userCanSeeLoginErrorMessage() {
-        String loginErrorMessage = new MainPage().getLoginErrorMessage();
+        String loginErrorMessage = mainPage.getLoginErrorMessage();
         assertThat(loginErrorMessage).contains(TestDataReader.getEnvData(UNSUCCESSFUL_LOGIN_MESSAGE));
     }
 }

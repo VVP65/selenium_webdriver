@@ -12,20 +12,39 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <testng.version>7.4.0</testng.version>
         <log4j.version>1.2.17</log4j.version>
-        <slf4j-simple.version>1.6.1</slf4j-simple.version>
-        <log4j-api.version>2.11.1</log4j-api.version>
-        <log4j-core.version>2.11.1</log4j-core.version>
+        <slf4j-simple.version>2.0.5</slf4j-simple.version>
+        <log4j-api.version>2.20.0</log4j-api.version>
+        <log4j-core.version>2.20.0</log4j-core.version>
         <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
-        <selenium-java.version>4.7.2</selenium-java.version>
-        <webdrivermanager.version>5.3.1</webdrivermanager.version>
         <asertj-core.version>3.24.2</asertj-core.version>
-        <lombok.version>1.18.20</lombok.version>
         <cucumber-library.version>7.11.1</cucumber-library.version>
-        <suite>testng-cucumber</suite>
+        <serenity-library.version>3.6.12</serenity-library.version>
+        <junit.version>4.13.2</junit.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-cucumber</artifactId>
+            <version>${serenity-library.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-core</artifactId>
+            <version>${serenity-library.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
@@ -42,45 +61,8 @@
             <version>${slf4j-simple.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>${webdrivermanager.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>${selenium-java.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testng.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>${cucumber-library.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-testng</artifactId>
-            <version>${cucumber-library.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-core</artifactId>
             <version>${cucumber-library.version}</version>
         </dependency>
         <dependency>
@@ -96,10 +78,25 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <suiteXmlFiles>
-                       <suiteXmlFile>src/test/resources/testSuites/${suite}.xml</suiteXmlFile>
-                    </suiteXmlFiles>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <includes>
+                        <exclude>**/*CucumberTestRunner.java</exclude>
+                    </includes>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.serenity-bdd.maven.plugins</groupId>
+                <artifactId>serenity-maven-plugin</artifactId>
+                <version>${serenity-library.version}</version>
+                <executions>
+                    <execution>
+                        <id>serenity-reports</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>aggregate</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

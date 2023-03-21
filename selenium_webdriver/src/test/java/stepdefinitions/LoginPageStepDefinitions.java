@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LoginPageStepDefinitions {
 
     public static final String MAIN_PAGE_PROPERTY_URL = "sauceDemo.main.page.url";
-    public static final String UNSUCCESSFUL_LOGIN_MESSAGE = "unsuccessful.login.message";
+    public static final String UNSUCCESSFUL_LOGIN_MESSAGE = "Sorry, this user has been locked out.";
 
     @Given("User Logged in to Main page with '{}' credentials")
     public void userLoggedInToMainPage(UserType userType) {
@@ -42,6 +42,6 @@ public class LoginPageStepDefinitions {
     @Then("User can see login error message")
     public void userCanSeeLoginErrorMessage() {
         String loginErrorMessage = new MainPage().getLoginErrorMessage();
-        assertThat(loginErrorMessage).contains(TestDataReader.getEnvData(UNSUCCESSFUL_LOGIN_MESSAGE));
+        assertThat(loginErrorMessage).contains(UNSUCCESSFUL_LOGIN_MESSAGE);
     }
 }

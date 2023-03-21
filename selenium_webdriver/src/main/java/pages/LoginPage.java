@@ -23,24 +23,18 @@ public class LoginPage extends PageObject {
         submit.waitUntilVisible();
     }
 
-    public LoginPage openPage(String url) {
+    public void openPage(String url) {
         openUrl(TestDataReader.getEnvData(url));
         waitForLoginButtonPresence();
-
-        return this;
     }
 
-    public LoginPage openLoginPage() {
+    public void openLoginPage() {
         openPage(LOGIN_PAGE_PROPERTY_URL);
-
-        return this;
     }
 
-    public MainPage loginToMainPage(User user) {
+    public void loginToMainPage(User user) {
         inputLogin.type(user.getUsername());
         inputPassword.type(user.getPassword());
         submit.click();
-
-        return new MainPage();
     }
 }

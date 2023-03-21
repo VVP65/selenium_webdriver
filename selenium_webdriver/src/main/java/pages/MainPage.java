@@ -19,10 +19,8 @@ public class MainPage extends PageObject {
         return getDriver().getCurrentUrl();
     }
 
-    public MainPage clickAddToCartButton() {
+    public void clickAddToCartButton() {
         sauceLabsBackPackItemAddToCartButton.click();
-
-        return this;
     }
 
     public String getLoginErrorMessage() {

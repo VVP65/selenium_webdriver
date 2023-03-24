@@ -1,6 +1,7 @@
 package pages;
 
 import core.driver.DriverSingleton;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -35,6 +36,7 @@ public class MainPage extends BasePage {
         PageFactory.initElements(this.driver, this);
     }
 
+    @Step("User click Add to cart button")
     public MainPage clickAddToCartButton() {
         sauceLabsBackPackItemAddToCartButton.click();
 
@@ -43,38 +45,29 @@ public class MainPage extends BasePage {
 
     public MainPage clickDeleteFromCartButton() {
         sauceLabsBackPackItemRemoveFromCartButton.click();
-        logger.info("I click to Delete from cart button");
 
         return this;
     }
 
+    @Step("User can see login error message")
     public String getLoginErrorMessage() {
-        logger.debug("Login was unsuccessful");
-
         return loginErrorButton.getText();
     }
 
     public String getCartBadgeMessage() {
-        logger.info("Cart badge message is present on the cart element on the screen");
-
         return sauceLabsBackPackItemIsAddedToCart.getText();
     }
 
     public String getSauceLabsBackPackItemAddToCartButtonText() {
-        logger.info("Sauce LabsBack Pack Item was added to cart");
-
         return sauceLabsBackPackItemAddToCartButton.getText();
     }
 
+    @Step("User can see back pack item remove from cart button text")
     public String getSauceLabsBackPackItemRemoveFromCartButtonText() {
-        logger.info("Sauce LabsBack Pack Item was removed from cart");
-
         return sauceLabsBackPackItemRemoveFromCartButton.getText();
     }
 
     public int getTheFullItemsListSize() {
-        logger.info("I can see the full list of items on the screen");
-
         return sauceDemoItemsList.size();
     }
 }

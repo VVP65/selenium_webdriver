@@ -2,6 +2,7 @@ package pages;
 
 import core.driver.DriverSingleton;
 import core.service.TestDataReader;
+import io.qameta.allure.Step;
 import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -47,6 +48,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    @Step("User opened Login page")
     public LoginPage openLoginPage() {
         openPage(LOGIN_PAGE_PROPERTY_URL);
         logger.info("Login page is opened");
@@ -54,6 +56,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    @Step("User logs in with '{}' credentials")
     public MainPage loginToMainPage(User user) {
         inputLogin.sendKeys(user.getUsername());
         inputPassword.sendKeys(user.getPassword());

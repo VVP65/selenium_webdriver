@@ -8,6 +8,6 @@ Allure Cucumber tests via terminal run command:
 mvn clean test
 
 Allure report creation via terminal run command:
-mvn allure:serve
+mvn allure:report
 
 Cucumber tests can also be launched manually from the "Run" command in the "CucumberTestRunner.class" at the line 15.

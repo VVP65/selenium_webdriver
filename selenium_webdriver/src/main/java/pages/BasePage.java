@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -16,8 +17,8 @@ public abstract class BasePage {
         this.driver = driver;
     }
 
+    @Step("User can see Main page url")
     public String getPageURL() {
-
         return driver.getCurrentUrl();
     }
 

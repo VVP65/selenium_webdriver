@@ -6,6 +6,7 @@ import core.service.UserCreator;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.qameta.allure.Step;
 import pages.LoginPage;
 import pages.MainPage;
 
@@ -23,11 +24,13 @@ public class LoginPageStepDefinitions {
         userCanSeeMainPageUrl();
     }
 
+    @Step("User opened Login page")
     @Given("User opened Login page")
     public void openLoginPage() {
         new LoginPage().openLoginPage();
     }
 
+    @Step("User logs in with '{}' credentials")
     @When("User logs in with '{}' credentials")
     public void userLogsInWithCredentials(UserType userType) {
         new LoginPage().loginToMainPage(UserCreator.getUser(userType));
@@ -39,6 +42,7 @@ public class LoginPageStepDefinitions {
         assertThat(mainPageURLActualResult).contains(TestDataReader.getEnvData(MAIN_PAGE_PROPERTY_URL));
     }
 
+    @Step("User can see login error message")
     @Then("User can see login error message")
     public void userCanSeeLoginErrorMessage() {
         String loginErrorMessage = new MainPage().getLoginErrorMessage();

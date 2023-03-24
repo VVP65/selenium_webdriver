@@ -1,7 +1,6 @@
 package pages;
 
 import core.driver.DriverSingleton;
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -36,7 +35,6 @@ public class MainPage extends BasePage {
         PageFactory.initElements(this.driver, this);
     }
 
-    @Step("User click Add to cart button")
     public MainPage clickAddToCartButton() {
         sauceLabsBackPackItemAddToCartButton.click();
 
@@ -49,7 +47,6 @@ public class MainPage extends BasePage {
         return this;
     }
 
-    @Step("User can see login error message")
     public String getLoginErrorMessage() {
         return loginErrorButton.getText();
     }
@@ -62,7 +59,6 @@ public class MainPage extends BasePage {
         return sauceLabsBackPackItemAddToCartButton.getText();
     }
 
-    @Step("User can see back pack item remove from cart button text")
     public String getSauceLabsBackPackItemRemoveFromCartButtonText() {
         return sauceLabsBackPackItemRemoveFromCartButton.getText();
     }

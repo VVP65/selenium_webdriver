@@ -1,3 +1,4 @@
+@smoke
 Feature: Add item to cart
 
   Scenario: Add item to cart
